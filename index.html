@@ -562,7 +562,175 @@ function markEngMarker(engText, engWord, sentIdx) {
 // ── STORY LIBRARY ─────────────────────────────────────────────────────────────
 // Each entry: { id, title, sentences[] }
 const STORY_LIB = [
-  { id: 'buoi-sang-cua-nam', title: 'Buổi Sáng Của Nam', subtitle: 'Nam\'s Morning — Discourse Markers', difficulty: 'Beginner', sentences: STORY }
+  { id: 'buoi-sang-cua-nam', title: 'Buổi Sáng Của Nam', subtitle: 'Nam\'s Morning — Discourse Markers', difficulty: 'Beginner', sentences: STORY },
+  {
+    id: 'lan-dau-gap-nhau',
+    title: 'Lần Đầu Gặp Nhau',
+    subtitle: 'First Meeting at Commune Cafe',
+    difficulty: 'Beginner',
+    sentences: [
+      {
+        viet: "Tom đến quán cà phê Commune.",
+        eng: "Tom arrives at Commune Cafe.",
+        engWord: "arrives",
+        marker: "đến",
+        brk: "Tom – name | đến – arrive/come to | quán – cafe/shop | cà phê – coffee | Commune – name of cafe",
+        tips: "đến = to arrive at / to come to a place. Very common verb. 'Tôi đến' = I arrive/I am here. Compare: đi = to go (leaving); đến = to arrive (coming)."
+      },
+      {
+        viet: "Anh ấy nhìn xung quanh và ngồi xuống.",
+        eng: "He looks around and sits down.",
+        engWord: "sits down",
+        marker: "và",
+        brk: "anh ấy – he | nhìn – look/see | xung quanh – around | và – and | ngồi xuống – sit down",
+        tips: "và = and (connects two actions). Very natural in spoken Vietnamese. 'nhìn xung quanh' is a very common phrase meaning to look around a new place."
+      },
+      {
+        viet: "Lan cũng đang ngồi ở đó.",
+        eng: "Lan is also sitting there.",
+        engWord: "also",
+        marker: "cũng",
+        brk: "Lan – name | cũng – also/too | đang – currently (action in progress) | ngồi – sit | ở đó – there",
+        tips: "cũng = also/too. Always placed before the verb: 'Lan cũng ngồi' NOT 'Lan ngồi cũng'. đang shows the action is happening right now."
+      },
+      {
+        viet: "Tom nhìn Lan và mỉm cười.",
+        eng: "Tom looks at Lan and smiles.",
+        engWord: "smiles",
+        marker: "và",
+        brk: "Tom – name | nhìn – look at | Lan – name | và – and | mỉm cười – smile (gently)",
+        tips: "mỉm cười = to smile softly/gently. cười alone = to laugh or smile broadly. mỉm cười is more subtle and polite — the natural first smile between strangers."
+      },
+      {
+        viet: "Lan hỏi: 'Bạn tên là gì?'",
+        eng: "Lan asks: 'What is your name?'",
+        engWord: "asks",
+        marker: "hỏi",
+        brk: "Lan – name | hỏi – ask | bạn – you (casual/friendly) | tên – name | là – is | gì – what",
+        tips: "hỏi = to ask. 'Bạn tên là gì?' is the most natural casual way to ask someone's name in northern Vietnamese. bạn here means 'you' (friendly/equal level)."
+      },
+      {
+        viet: "Tom nói: 'Tôi tên là Tom. Còn bạn?'",
+        eng: "Tom says: 'My name is Tom. And you?'",
+        engWord: "And you",
+        marker: "còn",
+        brk: "Tom – name | nói – say/speak | tôi – I/me | tên là – name is | còn bạn – and you? / what about you?",
+        tips: "còn = and/what about (used to turn a question back). 'Còn bạn?' = 'And you? / What about you?' Very natural and polite way to continue a conversation."
+      },
+      {
+        viet: "Lan nói: 'Tôi tên là Lan. Rất vui được gặp bạn!'",
+        eng: "Lan says: 'My name is Lan. Very nice to meet you!'",
+        engWord: "nice to meet",
+        marker: "rất",
+        brk: "tôi tên là – my name is | Lan – name | rất – very | vui – happy/glad | được gặp – to meet | bạn – you",
+        tips: "rất vui được gặp bạn = very happy to meet you. This is the standard friendly greeting in Vietnamese. rất = very (intensifier). vui = happy/glad."
+      },
+      {
+        viet: "Tom chưa biết nói nhiều tiếng Việt.",
+        eng: "Tom doesn't know much Vietnamese yet.",
+        engWord: "yet",
+        marker: "chưa",
+        brk: "Tom – name | chưa – not yet | biết nói – know how to speak | nhiều – much/many | tiếng Việt – Vietnamese language",
+        tips: "chưa = not yet (implies he might learn later). Compare: không biết = simply doesn't know (no implication of future). chưa is more optimistic and natural here."
+      },
+      {
+        viet: "Nhưng anh ấy muốn học.",
+        eng: "But he wants to learn.",
+        engWord: "But",
+        marker: "nhưng",
+        brk: "nhưng – but | anh ấy – he | muốn – want | học – study/learn",
+        tips: "nhưng = but. Short powerful sentence showing contrast. muốn = to want (one of the most common verbs). 'Tôi muốn học' = I want to learn — extremely useful phrase."
+      },
+      {
+        viet: "Lan cũng muốn học tiếng Anh.",
+        eng: "Lan also wants to learn English.",
+        engWord: "also",
+        marker: "cũng",
+        brk: "Lan – name | cũng – also | muốn – want | học – learn | tiếng Anh – English language",
+        tips: "tiếng Việt = Vietnamese language. tiếng Anh = English language. tiếng = language/sound. This parallel structure (both wanting to learn) is a beautiful moment of connection."
+      },
+      {
+        viet: "Vì vậy, họ quyết định giúp nhau.",
+        eng: "So therefore, they decide to help each other.",
+        engWord: "So",
+        marker: "vì vậy",
+        brk: "vì vậy – so therefore | họ – they | quyết định – decide | giúp nhau – help each other",
+        tips: "vì vậy = so/therefore (cause and effect). giúp nhau = help each other. nhau is a very useful word meaning 'each other/one another': gặp nhau = meet each other, hiểu nhau = understand each other."
+      },
+      {
+        viet: "Lan hỏi: 'Bạn uống gì?'",
+        eng: "Lan asks: 'What are you drinking?'",
+        engWord: "drinking",
+        marker: "uống",
+        brk: "Lan – name | hỏi – ask | bạn – you | uống – drink | gì – what",
+        tips: "uống = to drink. 'Bạn uống gì?' = What are you drinking? / What would you like to drink? Very natural casual question. The verb uống alone covers both drinking and ordering a drink."
+      },
+      {
+        viet: "Tom nói: 'Tôi muốn uống cà phê sữa đá.'",
+        eng: "Tom says: 'I want to drink iced milk coffee.'",
+        engWord: "iced",
+        marker: "muốn",
+        brk: "tôi muốn – I want | uống – drink | cà phê – coffee | sữa – milk | đá – ice",
+        tips: "cà phê sữa đá = Vietnamese iced milk coffee — one of the most iconic drinks in Vietnam. đá = ice. sữa = milk. Knowing this order will make you very popular in any Vietnamese cafe!"
+      },
+      {
+        viet: "Lan cười và nói: 'Bạn biết uống cà phê Việt rồi!'",
+        eng: "Lan laughs and says: 'You already know how to drink Vietnamese coffee!'",
+        engWord: "already",
+        marker: "rồi",
+        brk: "Lan – name | cười – laugh | và – and | nói – say | bạn – you | biết – know | uống – drink | cà phê Việt – Vietnamese coffee | rồi – already",
+        tips: "rồi here = already (showing surprise/approval). 'Biết rồi!' = Already knows! / Got it! rồi at the end of a sentence often expresses that something has been achieved or completed."
+      },
+      {
+        viet: "Họ nói chuyện trong một tiếng đồng hồ.",
+        eng: "They talk for one hour.",
+        engWord: "talk",
+        marker: "trong",
+        brk: "họ – they | nói chuyện – talk/chat | trong – for/during | một tiếng – one hour | đồng hồ – clock/watch",
+        tips: "nói chuyện = to have a conversation/chat. nói alone = to say/speak. trong here = for (a duration of time). một tiếng đồng hồ = one hour (literally 'one clock sound')."
+      },
+      {
+        viet: "Đôi khi họ không hiểu nhau.",
+        eng: "Sometimes they don't understand each other.",
+        engWord: "Sometimes",
+        marker: "đôi khi",
+        brk: "đôi khi – sometimes | họ – they | không – not | hiểu – understand | nhau – each other",
+        tips: "đôi khi = sometimes. hiểu = to understand (one of the most important words for a language learner!). 'Tôi không hiểu' = I don't understand — memorize this phrase!"
+      },
+      {
+        viet: "Nhưng họ vẫn cười và cố gắng.",
+        eng: "But they still laugh and try.",
+        engWord: "still",
+        marker: "vẫn",
+        brk: "nhưng – but | họ – they | vẫn – still | cười – laugh | và – and | cố gắng – try/make effort",
+        tips: "vẫn = still (situation continues). cố gắng = to try hard / make an effort. 'Cố gắng lên!' = Keep trying! / You can do it! A very encouraging phrase in Vietnamese."
+      },
+      {
+        viet: "Cuối cùng, Tom hỏi: 'Bạn có muốn gặp lại không?'",
+        eng: "Finally, Tom asks: 'Do you want to meet again?'",
+        engWord: "Finally",
+        marker: "cuối cùng",
+        brk: "cuối cùng – finally/in the end | Tom – name | hỏi – ask | có muốn – do you want | gặp lại – meet again | không – question particle",
+        tips: "cuối cùng = finally/in the end. 'Có...không?' is the standard yes/no question pattern in Vietnamese. gặp lại = meet again (lại = again). 'Có muốn gặp lại không?' is very natural and direct."
+      },
+      {
+        viet: "Lan mỉm cười và nói: 'Có chứ!'",
+        eng: "Lan smiles and says: 'Of course!'",
+        engWord: "Of course",
+        marker: "chứ",
+        brk: "Lan – name | mỉm cười – smile | và – and | nói – say | có – yes/have | chứ – of course/emphasis particle",
+        tips: "chứ at the end adds strong emphasis and naturalness. 'Có chứ!' = Of course! / Definitely! Much more enthusiastic than just 'Có.' (yes). Very common in northern casual speech."
+      },
+      {
+        viet: "Từ giờ trở đi, họ là bạn bè.",
+        eng: "From now on, they are friends.",
+        engWord: "From now on",
+        marker: "từ giờ trở đi",
+        brk: "từ giờ trở đi – from now on | họ – they | là – are | bạn bè – friends",
+        tips: "từ giờ trở đi = from now on / going forward. bạn bè = friends (plural of bạn). bạn alone = friend or 'you' (casual). A warm ending — two people connected by language and coffee!"
+      }
+    ]
+  }
 ];
 let savedStories = [];  // AI-generated stories saved by user
 
@@ -577,7 +745,7 @@ function saveStoriesToStorage() {
   try {
     const data = JSON.stringify(savedStories);
     localStorage.setItem('vl_stories', data);
-    localStorage.setItem('vl_stories_bak', data); // backup copy
+    localStorage.setItem('vl_stories_bak', data);
   } catch(e) {}
 }
 
@@ -1244,7 +1412,6 @@ function toast(msg) {
 document.getElementById('togAuto').classList.add('on');
 init();
 
-// Auto-save when user leaves the app or switches away
 document.addEventListener('visibilitychange', function() {
   if (document.visibilityState === 'hidden') {
     saveStoriesToStorage();
