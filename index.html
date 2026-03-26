@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="VietListen">
+<meta name="theme-color" content="#0d0d0d">
+<title>VietListen</title>
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAE+klEQVR4nO3dS1LcShCF4WyCbfSQPXmJXhMMvRA8oQgh1GqplPXIk/83dcRFj78PdbEdvr2/3W2wz9EXAHe3UV/4dcDXJGB963fcLfBeQRNxbsv33zTu1kETMtZKE03CbhU0IeOZJmF7B03IOMs1bK+gCRlXuYT94nghgIdLPV0NmpjRQnVXtUcOQkZrVUeQmoUmZvR0qrezQRMzRjjc3ZmgiRkjHervaNDEjBk87dDjx3bANI4EzTpjJrs9PguamDGjh13uBU3MmNlmn5yhIeVR0KwzIvjVKQsNKVtBs86I5EevLDSkrINmnRHRd7csNKQsg2adEdmnGQsNMQQNKSVojhtQ8MlCQwpBQwpBQ8qLcX6GEBYaUggaUggaUggaUggaUgi6k7e//0ZfQgoEDSkE3UFZZ1a6PYKGFIJujFXui6A7I/C2CBpSCLoh1rg/gh6A0NshaEgh6EaerTAr3QZBQwpBN8D6jkPQAxG+P4KGFIJ2xuqORdCD8QHwRdCQQtCOWNvxCHoCfBD8ELQTopwDQUMKQU+ChfdB0A6IcR4EDSkEfZHnOrP01xE0pBD0ZFjpawj6AuKbD0FDCkFPiOWvR9CViG5OBA0pBF2hxzrzHaAOQUPK7f3tPvU/vMlSzeXjz330JeyafqFnf4CZRHgX0y/0Ems9RoSQi+kXeinSg1UR7ZmHCtos3gOOLOKzDhe0WcwHHU3UZxzqDL2Fc7WvqCEXIRd6KfoLmInCswwftJnGixhN5RlKBG2m80JGUHp24c/QWzhXH6MUciGz0EuKL8qb6jOSDNpM94V5UH42skGbab+4WurPRPIMvSX7uVo95EJ6oZeyvNAtme49TdBmuV5ske2eUwVtlusFZ7rXIs0ZeovquTpjyEW6hV5SfPGK93RG6qDNtAJQupda6YM20whB4R48pD5Db4l2ribkn1jolUiBRLrWXggaUgh6JdKRI9K19kLQkELQkELQkELQCxHPpBGvuSWChhSChhSChhSC/hL5LBr52r0RNKQQNKQQtGl8y1a4Bw8EDSkEDSkEDSnp/8ZKj7Pn8g/it/562f/QPwvd2Dqw7MG19jr6AlTthVt+jZ9M+Eu90K2COrrCLdY6+4eEhXZUEyhr7Sv1Qnu6uracrX2w0Bd5hshaX5d2oT2iabWqV/+7mT8QLHSFHscD1rpO2oWu8fHn3v2sy9n6HII+aGRYIz5IUaX8re8z38ZnCynytffAQu+YMQjWeh9Bb4gQzezXN0q6I8ezb9kRQ9m7p4j3cwUL/SXCKj8S9bpbIGjTCCLyB9JT6qAVI1C7n7NSnaGXZ80ML77cb4Z7LdIttOIqP5LlPpdSLTT0pVtoaCNoSCFoSCFoSCFoSCFoSCFoSCFoSCFoSCFoSCFoSCFoSCFoSCFoSCFoSHkxs9voiwC8sNCQQtCQQtCQUoLmHA0FNxYaUggaUpZBc+xAZDczFhpi1kGz0ojou1sWGlK2gmalEcmPXlloSHkUNCuNCH51ykJDyl7QrDRmttnns4UmaszoYZdHjhxEjZns9sgZGlKOBs1KYwZPOzyz0ESNkQ71d/bIQdQY4XB3NWdookZPp3p7vfhF+Cfh0ErVcF79KQdrjRaqu/L4sR1Rw9OlnmqPHI8ugiMIarkMo1fQBWHjLNfv8N5BF4SNZ5ocVVsFXRA21pr+P1froIvlTRB3Pt1+cPAfBEQi7O8e2W4AAAAASUVORK5CYII=">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;background:#0d0d0d;color:#f5f5f0;font-family:'Nunito',sans-serif;overscroll-behavior:none;}
+:root{--acc:#ff6b35;--gold:#ffd700;--teal:#00d4aa;--ok:#00c853;--no:#ff3d57;--sur:#1a1a1a;--sur2:#252525;--brd:rgba(255,255,255,.09);--rad:14px;--tap:52px;}
+
+/* HEADER */
+#hdr{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--brd);gap:8px;}
+#logo{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--acc);white-space:nowrap;}
+#logo span{color:var(--gold);}
+#hdrSpd{display:flex;align-items:center;gap:6px;flex:1;max-width:160px;}
+#hdrSpd label{font-size:11px;font-weight:800;color:#666;white-space:nowrap;}
+#hdrSpd input[type=range]{flex:1;accent-color:var(--acc);height:4px;cursor:pointer;}
+#spdLbl{font-size:11px;color:#666;font-weight:700;min-width:24px;}
+
+/* TABS */
+#tabs{display:flex;border-bottom:1px solid var(--brd);}
+.tb{flex:1;padding:12px 2px;text-align:center;font-size:11px;font-weight:800;letter-spacing:.7px;color:#666;border-bottom:3px solid transparent;text-transform:uppercase;cursor:pointer;}
+.tb.on{color:var(--acc);border-bottom-color:var(--acc);}
+
+/* MAIN */
+#main{display:flex;flex-direction:column;align-items:center;padding:12px 14px;gap:10px;overflow-y:auto;height:calc(100vh - 108px);}
+
+/* STORY PANEL */
+#storyPanel{width:100%;max-width:500px;display:flex;flex-direction:column;gap:10px;}
+
+/* SENTENCE CARD */
+.sCard{background:var(--sur);border:1.5px solid var(--brd);border-radius:var(--rad);padding:14px;transition:border-color .3s;}
+.sCard.active{border-color:var(--acc);background:rgba(255,107,53,.07);}
+.sCard.done{opacity:.5;}
+
+.sNum{font-size:11px;font-weight:800;color:#39ff14;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;text-align:center;text-shadow:0 0 6px rgba(57,255,20,.5);}
+.sViet{font-size:clamp(15px,4vw,20px);font-weight:700;line-height:1.7;margin-bottom:8px;}
+.sEng{font-size:13px;color:#aaa;font-weight:600;line-height:1.5;margin-bottom:0;}
+.sBrk{font-size:12px;color:#aaa;line-height:1.8;margin-top:8px;display:none;}
+.sBrk.on{display:block;}
+.sTips{font-size:12px;color:#aaa;line-height:1.7;margin-top:6px;display:none;background:rgba(255,215,0,.05);border-radius:8px;padding:8px 10px;border-left:2px solid var(--gold);}
+.sTips.on{display:block;}
+
+/* Word highlighting */
+.w{display:inline;cursor:pointer;border-radius:4px;padding:0 2px;transition:background .1s;}
+.w.hl{background:rgba(255,215,0,.18);color:#ffe066;border-radius:4px;padding:0 3px;}
+.w.hl-marker{background:rgba(255,210,0,.85);color:#1a1200;border-radius:4px;padding:0 3px;box-shadow:0 0 0 2px #39ff14,0 0 8px 1px #39ff14;}
+/* Marker at rest (dim indicator, not reading) */
+.marker-rest{background:rgba(255,215,0,.08);border-radius:3px;padding:0 2px;color:rgba(255,215,0,.45);}
+/* English marker highlight - only when reading */
+.eng-marker{transition:background .2s,color .2s;}
+.eng-marker.lit{background:rgba(255,215,0,.25);color:#ffe066;border-radius:3px;padding:0 2px;}
+
+/* CONTROLS */
+#ctrlBar{position:fixed;bottom:0;left:0;right:0;background:#0d0d0d;border-top:1px solid var(--brd);padding:10px 14px;display:flex;flex-direction:column;gap:8px;}
+#btnRow{display:flex;gap:8px;width:100%;max-width:500px;margin:0 auto;}
+#btnRow button{flex:1;height:var(--tap);border-radius:var(--rad);font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;cursor:pointer;border:1.5px solid;}
+#playBtn{background:rgba(255,107,53,.2);border-color:rgba(255,107,53,.5);color:var(--acc);}
+#playBtn.playing{background:rgba(255,107,53,.35);border-color:var(--acc);}
+#prevBtn,#nextBtn{background:rgba(30,80,160,.25);border-color:rgba(80,140,255,.35);color:#90b8ff;flex:0 0 52px;}
+#stopBtn{background:rgba(255,61,87,.15);border-color:rgba(255,61,87,.3);color:var(--no);flex:0 0 52px;}
+#toggleRow{display:flex;gap:6px;width:100%;max-width:500px;margin:0 auto;}
+.tog{flex:1;height:36px;border-radius:99px;font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;cursor:pointer;border:1.5px solid var(--brd);background:transparent;color:#f5f5f0;}
+#togBrk.on{background:rgba(0,212,170,.2);border-color:var(--teal);color:var(--teal);}
+#togTips.on{background:rgba(255,215,0,.15);border-color:var(--gold);color:var(--gold);}
+#togAuto.on{background:rgba(0,200,83,.15);border-color:var(--ok);color:var(--ok);}
+
+/* STAR button on card */
+.starBtn{position:absolute;top:8px;right:10px;background:none;border:none;font-size:18px;cursor:pointer;opacity:.3;transition:opacity .2s;}
+.starBtn.on{opacity:1;}
+.sCard{position:relative;}
+
+/* Repeat badge */
+#repeatBadge{display:none;position:absolute;top:8px;left:50%;transform:translateX(-50%);background:rgba(0,200,83,.2);border:1px solid var(--ok);border-radius:99px;padding:2px 10px;font-size:11px;font-weight:800;color:var(--ok);white-space:nowrap;pointer-events:none;}
+#repeatBadge.on{display:block;}
+
+/* Tap-to-hear pulse */
+.w.tapped{animation:tapPulse .35s ease;}
+@keyframes tapPulse{0%{background:rgba(255,215,0,.6);}100%{background:transparent;}}
+
+/* Starred filter chip */
+#starFilter{display:none;background:rgba(255,215,0,.12);border:1.5px solid var(--gold);border-radius:99px;padding:4px 12px;font-size:11px;font-weight:800;color:var(--gold);cursor:pointer;text-align:center;width:100%;max-width:500px;}
+#starFilter.on{display:block;}
+
+/* PROGRESS */
+#progBar{width:100%;max-width:500px;margin:0 auto;height:3px;background:var(--brd);border-radius:99px;overflow:hidden;}
+#progFill{height:100%;background:linear-gradient(90deg,var(--acc),var(--gold));border-radius:99px;transition:width .4s;width:0%;}
+
+/* EDITOR TAB */
+#editorPanel{width:100%;max-width:500px;display:none;flex-direction:column;gap:10px;}
+#editorPanel.on{display:flex;}
+.edRow{display:grid;grid-template-columns:1fr;gap:4px;background:var(--sur);border:1px solid var(--brd);border-radius:10px;padding:10px;}
+.edRow .edIdx{font-size:10px;font-weight:800;color:#39ff14;letter-spacing:1px;}
+.edRow textarea{background:var(--sur2);border:1px solid var(--brd);border-radius:6px;color:#f5f5f0;font-family:'Nunito',sans-serif;font-size:12px;padding:6px 8px;resize:vertical;outline:none;width:100%;}
+.edRow textarea:focus{border-color:var(--acc);}
+.edRow label{font-size:10px;font-weight:800;color:#555;letter-spacing:.5px;text-transform:uppercase;margin-top:4px;}
+#edSaveBtn{width:100%;height:var(--tap);border-radius:var(--rad);font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;cursor:pointer;border:1.5px solid var(--ok);background:rgba(0,200,83,.15);color:var(--ok);}
+#edSaveBtn:disabled{opacity:.4;}
+#edStatus{font-size:12px;color:#666;font-weight:700;text-align:center;min-height:18px;}
+
+/* INDEX TAB */
+#indexPanel{width:100%;max-width:500px;display:none;flex-direction:column;gap:8px;}
+#indexPanel.on{display:flex;}
+.storyCard{background:var(--sur);border:1.5px solid var(--brd);border-radius:var(--rad);padding:12px 14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
+.storyCard:active{background:var(--sur2);}
+.storyCard.active-story{border-color:var(--acc);}
+.storyTitle{font-size:14px;font-weight:800;color:#f5f5f0;}
+.storyMeta{font-size:11px;color:#666;font-weight:700;margin-top:2px;}
+.storyPlay{font-size:18px;}
+
+/* AI TAB */
+#aiPanel{width:100%;max-width:500px;display:none;flex-direction:column;gap:10px;}
+#aiPanel.on{display:flex;}
+#aiPrompt{width:100%;background:var(--sur);border:1.5px solid var(--brd);border-radius:var(--rad);color:#f5f5f0;font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;padding:12px;resize:none;outline:none;}
+#aiPrompt:focus{border-color:var(--acc);}
+#aiGenBtn{width:100%;height:var(--tap);border-radius:var(--rad);font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;cursor:pointer;border:1.5px solid var(--acc);background:rgba(255,107,53,.2);color:var(--acc);}
+#aiGenBtn:disabled{opacity:.4;cursor:not-allowed;}
+#aiStatus{font-size:12px;color:#666;font-weight:700;text-align:center;min-height:18px;}
+#aiResult{width:100%;background:var(--sur);border:1.5px solid var(--brd);border-radius:var(--rad);padding:12px;font-size:13px;line-height:1.7;display:none;}
+#aiResult.on{display:block;}
+#aiUseBtn{width:100%;height:var(--tap);border-radius:var(--rad);font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;cursor:pointer;border:1.5px solid var(--ok);background:rgba(0,200,83,.15);color:var(--ok);display:none;}
+#aiUseBtn.on{display:block;}
+
+/* toast */
+#toast{position:fixed;top:70px;left:50%;transform:translateX(-50%);background:var(--sur2);border:1px solid var(--brd);border-radius:99px;padding:8px 18px;font-size:13px;font-weight:700;pointer-events:none;opacity:0;transition:opacity .3s;z-index:99;white-space:nowrap;}
+</style>
+</head>
+<body>
+
+<div id="hdr">
+  <div id="logo">Viet<span>Listen</span></div>
+  <div id="hdrSpd">
+    <label>SPD</label>
+    <input type="range" id="spd" min="0.4" max="1.2" step="0.1" value="0.8" oninput="document.getElementById('spdLbl').textContent=this.value">
+    <span id="spdLbl">0.8</span>
+  </div>
+</div>
+
+<div id="tabs">
+  <div class="tb on" id="tbStory" onclick="showTab('story')">Story</div>
+  <div class="tb" id="tbIndex" onclick="showTab('index')">📚 Stories</div>
+  <div class="tb" id="tbEditor" onclick="showTab('editor')">✏️ Edit</div>
+  <div class="tb" id="tbAI" onclick="showTab('ai')">✨ AI</div>
+</div>
+
+<div id="main">
+  <div style="width:100%;max-width:500px;display:flex;gap:8px;align-items:center;">
+    <div id="starFilter" onclick="togStarFilter()">★ Tap to show starred only</div>
+  </div>
+  <div id="storyPanel"></div>
+  <div id="aiPanel">
+    <textarea id="aiPrompt" rows="3" placeholder="Describe a story topic, e.g.: 'A girl visits her grandmother in the countryside. Use beginner Vietnamese. Include the word: vì, nhưng, rồi, sau đó.'"></textarea>
+    <button id="aiGenBtn" onclick="genAI()">✨ Generate Story</button>
+    <div id="aiStatus"></div>
+    <div id="aiResult"></div>
+    <button id="aiUseBtn" onclick="useAIStory()">▶ Use This Story</button>
+  </div>
+  <!-- INDEX PANEL -->
+  <div id="indexPanel">
+    <div style="font-size:11px;font-weight:800;color:#666;text-align:center;letter-spacing:1px;text-transform:uppercase;padding:4px 0">Your Stories</div>
+    <div id="storyList"></div>
+    <div style="height:8px"></div>
+    <div style="font-size:11px;color:#555;text-align:center;font-weight:700;">AI-generated stories are saved here automatically.</div>
+  </div>
+
+  <!-- EDITOR PANEL -->
+  <div id="editorPanel">
+    <div style="font-size:11px;font-weight:800;color:#666;text-align:center;letter-spacing:1px;text-transform:uppercase;padding:4px 0">Edit Story Sentences</div>
+    <div id="editorRows"></div>
+    <div style="font-size:10px;color:#555;font-weight:700;text-align:center;">Changes apply to the current story. Requires internet to regenerate via AI.</div>
+    <button id="edSaveBtn" onclick="saveEdits()">✅ Apply Changes</button>
+    <div id="edStatus"></div>
+  </div>
+
+  <div style="height:120px"></div>
+</div>
+
+<div id="ctrlBar">
+  <div id="progBar"><div id="progFill"></div></div>
+  <div id="btnRow">
+    <button id="prevBtn" onclick="prevSent()">◀</button>
+    <button id="playBtn" onclick="togglePlay()">▶ Play</button>
+    <button id="stopBtn" onclick="stopAll()">↺</button>
+    <button id="nextBtn" onclick="nextSent()">▶</button>
+  </div>
+  <div id="toggleRow">
+    <button class="tog" id="togBrk" onclick="togBreak()">Breakdown</button>
+    <button class="tog" id="togTips" onclick="togTips()">Tips</button>
+    <button class="tog" id="togAuto" onclick="togAuto()">Follow</button>
+    <button class="tog" id="togRepeat" onclick="togRepeat()">🔁 ×<span id="repLbl">1</span></button>
+  </div>
+  <div id="repeatBadge">🔁 Repeat ×<span id="repBadgeLbl">3</span> — <span id="repCountLbl">0</span> done</div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+// ── STORY DATA ──────────────────────────────────────────────────────────────
+const STORY = [
+  {
+    viet: "Thường thì Nam dậy sớm.",
+    eng: "Usually Nam wakes up early.",
+    engWord: "Usually",
+    marker: "thường",
+    brk: "thường – usually | thì – then/topic marker | Nam – name | dậy – wake up | sớm – early",
+    tips: "thường = usually/normally. Very common in everyday speech. Often paired with thì: 'thường thì...' = 'usually...'"
+  },
+  {
+    viet: "Nhưng hôm nay, anh ấy dậy muộn.",
+    eng: "But today, he woke up late.",
+    engWord: "But",
+    marker: "nhưng",
+    brk: "nhưng – but | hôm nay – today | anh ấy – he | dậy – wake up | muộn – late",
+    tips: "nhưng = but/however. One of the most common connectors in Vietnamese. Always placed at the start of the contrasting clause."
+  },
+  {
+    viet: "Mẹ đã gọi anh ấy rồi.",
+    eng: "Mom had already called him.",
+    engWord: "already",
+    marker: "rồi (already)",
+    brk: "mẹ – mom | đã – past tense marker | gọi – call | anh ấy – him | rồi – already",
+    tips: "rồi has two jobs: (1) 'already' – action is done (used here); (2) 'then' – what happens next. Context tells you which meaning."
+  },
+  {
+    viet: "Anh ấy vội vàng mặc quần áo, rồi chạy xuống bếp.",
+    eng: "He quickly got dressed, then ran down to the kitchen.",
+    engWord: "then",
+    marker: "rồi (then)",
+    brk: "vội vàng – hurriedly | mặc – put on | quần áo – clothes | rồi – then | chạy – run | xuống – down | bếp – kitchen",
+    tips: "Here rồi = 'then' (sequence of actions). Same word as 'already' above – position in the sentence shows the meaning."
+  },
+  {
+    viet: "Lúc đầu, anh ấy không muốn ăn sáng.",
+    eng: "At first, he didn't want to eat breakfast.",
+    engWord: "At first",
+    marker: "lúc đầu",
+    brk: "lúc – time/moment | đầu – beginning | không – not | muốn – want | ăn sáng – eat breakfast",
+    tips: "lúc đầu = at first/at the beginning. Natural opener for a story or when something changes later."
+  },
+  {
+    viet: "Nhưng mẹ nói: 'Con phải ăn chứ!'",
+    eng: "But mom said: 'You have to eat!'",
+    engWord: "But",
+    marker: "nhưng",
+    brk: "mẹ – mom | nói – say | con – child/you | phải – must | ăn – eat | chứ – emphasis particle",
+    tips: "Second use of nhưng – shows how frequently it appears in natural northern speech."
+  },
+  {
+    viet: "Vì vậy, anh ấy ăn một bát phở nhỏ.",
+    eng: "So therefore, he ate a small bowl of phở.",
+    engWord: "So",
+    marker: "nên / vì vậy",
+    brk: "vì vậy – so therefore | anh ấy – he | ăn – eat | một – one | bát – bowl | phở – noodle soup | nhỏ – small",
+    tips: "nên = so/therefore. vì vậy is slightly more formal but both are common in northern speech."
+  },
+  {
+    viet: "Sau đó, mẹ và anh ấy đi chợ.",
+    eng: "After that, mom and he went to the market.",
+    engWord: "After that",
+    marker: "sau đó",
+    brk: "sau – after | đó – that | mẹ – mom | và – and | anh ấy – he | đi – go | chợ – market",
+    tips: "sau đó = after that (sequence in time). Compare with rồi (then) – both show sequence but sau đó is more explicit about time passing."
+  },
+  {
+    viet: "Mẹ mua rau, còn anh ấy mua bánh mì với pho mát.",
+    eng: "Mom bought vegetables, and he bought bread with cheese.",
+    engWord: "with",
+    marker: "với",
+    brk: "mẹ – mom | mua – buy | rau – vegetables | còn – and/while | bánh mì – bread | với – with | pho mát – cheese",
+    tips: "với = with. Very natural and casual. Also used for 'together with a person': đi với bạn = go with a friend."
+  },
+  {
+    viet: "Đồng thời, trời bắt đầu nắng đẹp.",
+    eng: "At the same time, the weather started to become sunny.",
+    engWord: "At the same time",
+    marker: "đồng thời",
+    brk: "đồng – same | thời – time | trời – sky/weather | bắt đầu – begin | nắng – sunny | đẹp – beautiful",
+    tips: "đồng thời = at the same time / simultaneously. Slightly more formal than trong khi but still common in everyday northern speech."
+  },
+  {
+    viet: "Trong khi mẹ trả tiền, anh ấy gặp bạn Lan.",
+    eng: "While mom was paying, he ran into his friend Lan.",
+    engWord: "While",
+    marker: "trong khi",
+    brk: "trong – during/inside | khi – time/when | mẹ – mom | trả tiền – pay | anh ấy – he | gặp – meet | bạn – friend",
+    tips: "trong khi = while/meanwhile (two things happening at the same time). Very natural in everyday northern speech."
+  },
+  {
+    viet: "Lan hỏi: 'Bây giờ mày có rảnh không?'",
+    eng: "Lan asked: 'Are you free right now?'",
+    engWord: "right now",
+    marker: "bây giờ",
+    brk: "hỏi – ask | bây giờ – right now/nowadays | mày – you (casual) | có...không – question pattern | rảnh – free/available",
+    tips: "bây giờ = right now OR nowadays – both meanings common. Here it means 'right now'. mày is very casual northern slang between close friends."
+  },
+  {
+    viet: "Nam nói: 'Tao chưa xong việc. Chờ tao một chút nhé!'",
+    eng: "Nam said: 'I'm not done yet. Wait for me a moment!'",
+    engWord: "yet",
+    marker: "chưa",
+    brk: "tao – I (casual) | chưa – not yet | xong – finish | việc – work | chờ – wait | một chút – a moment | nhé – softening particle",
+    tips: "chưa = not yet (hasn't happened but might). Compare: không = simply 'no/not'. 'Tôi không ăn' = I don't eat. 'Tôi chưa ăn' = I haven't eaten yet."
+  },
+  {
+    viet: "Lan nói: 'Ừ, tao cũng đang đợi mẹ tao.'",
+    eng: "Lan said: 'Yeah, I'm also waiting for my mom.'",
+    engWord: "also",
+    marker: "cũng",
+    brk: "ừ – yeah | tao – I (casual) | cũng – also/too | đang – currently | đợi – wait | mẹ tao – my mom",
+    tips: "cũng = also/too. Placed BEFORE the verb, never at the end like English 'too'. Wrong: 'Tao đợi cũng.' Correct: 'Tao cũng đợi.'"
+  },
+  {
+    viet: "Thỉnh thoảng họ hay gặp nhau ở đây.",
+    eng: "Sometimes they often meet each other here.",
+    engWord: "Sometimes",
+    marker: "thỉnh thoảng",
+    brk: "thỉnh thoảng – sometimes | họ – they | hay – often | gặp nhau – meet each other | ở đây – here",
+    tips: "thỉnh thoảng = sometimes. Compare with đôi khi (next sentence) – very similar. thỉnh thoảng is slightly more colloquial in northern speech."
+  },
+  {
+    viet: "Đôi khi họ ăn kem cùng nhau sau khi đi chợ.",
+    eng: "Sometimes they eat ice cream together after going to the market.",
+    engWord: "Sometimes",
+    marker: "đôi khi",
+    brk: "đôi – pair | khi – time/when | họ – they | ăn kem – eat ice cream | cùng nhau – together | sau khi – after doing",
+    tips: "đôi khi = sometimes. Very similar to thỉnh thoảng. đôi khi can feel slightly more literary; both are used freely in the north."
+  },
+  {
+    viet: "Hôm nay, đặc biệt là trời đẹp.",
+    eng: "Today, especially the weather was nice.",
+    engWord: "especially",
+    marker: "đặc biệt",
+    brk: "hôm nay – today | đặc biệt – especially/special | là – is/especially | trời – sky/weather | đẹp – beautiful",
+    tips: "'đặc biệt là...' is a very natural northern phrase meaning 'especially...' or 'in particular...'"
+  },
+  {
+    viet: "Thậm chí có một cơn gió nhẹ nữa.",
+    eng: "There was even a light breeze too.",
+    engWord: "even",
+    marker: "thậm chí",
+    brk: "thậm chí – even | có – there is | một – a | cơn gió – breeze | nhẹ – light/gentle | nữa – also/more",
+    tips: "thậm chí = even (emphasizes something surprising). Stronger than cũng. 'Thậm chí trời còn mưa.' = 'It even rained.'"
+  },
+  {
+    viet: "Lan nói: 'Hôm nay đẹp gần như mùa xuân!'",
+    eng: "Lan said: 'Today is almost as beautiful as spring!'",
+    engWord: "almost",
+    marker: "gần như",
+    brk: "hôm nay – today | đẹp – beautiful | gần như – almost/nearly | mùa xuân – spring season",
+    tips: "gần như = almost/nearly. gần = near; như = like/as. Very common and natural in everyday speech."
+  },
+  {
+    viet: "Theo mẹ Nam, mùa xuân ở Hà Nội rất đặc biệt.",
+    eng: "According to Nam's mom, spring in Hanoi is very special.",
+    engWord: "According to",
+    marker: "theo",
+    brk: "theo – according to | mẹ Nam – Nam's mom | mùa xuân – spring | ở – in/at | Hà Nội – Hanoi | rất – very",
+    tips: "theo = according to (citing a source). 'Theo tôi...' = 'In my opinion...' Very natural in northern speech."
+  },
+  {
+    viet: "Chỉ cần mặc thêm một cái áo là được.",
+    eng: "As long as you wear one extra layer, it's fine.",
+    engWord: "As long as",
+    marker: "chỉ cần",
+    brk: "chỉ – only | cần – need | mặc thêm – wear additionally | một cái áo – one shirt/layer | là được – then it's okay",
+    tips: "chỉ cần...là = as long as / you just need to... Pattern: 'Chỉ cần học chăm là giỏi.' = 'As long as you study hard, you'll be good.'"
+  },
+  {
+    viet: "Nam nghĩ: 'Ít nhất mình có thể chơi ngoài trời hôm nay.'",
+    eng: "Nam thought: 'At least I can play outside today.'",
+    engWord: "At least",
+    marker: "ít nhất",
+    brk: "nghĩ – think | ít nhất – at least | mình – I/myself | có thể – can/able | chơi – play | ngoài trời – outside",
+    tips: "ít nhất = at least. ít = little/few; nhất = most (superlative). Natural in both formal and casual speech."
+  },
+  {
+    viet: "Vừa về đến nhà là anh ấy chạy ra sân ngay.",
+    eng: "As soon as he got home, he ran out to the yard.",
+    engWord: "As soon as",
+    marker: "vừa…là…",
+    brk: "vừa – as soon as | về đến – arrive back | nhà – home | là – then | chạy ra – run out | sân – yard | ngay – right away",
+    tips: "vừa...là = as soon as... (instant reaction). Very natural northern pattern. 'Vừa nhìn thấy là biết.' = 'As soon as I saw it, I knew.'"
+  },
+  {
+    viet: "Anh ấy vẫn mặc áo từ buổi sáng.",
+    eng: "He was still wearing the shirt from this morning.",
+    engWord: "still",
+    marker: "vẫn",
+    brk: "anh ấy – he | vẫn – still | mặc – wear | áo – shirt | từ – from | buổi sáng – morning",
+    tips: "vẫn = still (situation continues unchanged). Compare with lại (again): 'vẫn chơi' = still playing; 'lại chơi' = playing again."
+  },
+  {
+    viet: "Lan lại chạy sang nhà Nam chơi.",
+    eng: "Lan came over to Nam's house again to play.",
+    engWord: "again",
+    marker: "lại",
+    brk: "lại – again | chạy sang – run over to | nhà Nam – Nam's house | chơi – play",
+    tips: "lại = again (repeated action). Compare vẫn (still): 'vẫn chơi' = never stopped; 'lại chơi' = started again after a pause."
+  },
+  {
+    viet: "Lúc đó mẹ đang nấu cơm trong bếp.",
+    eng: "At that time mom was cooking rice in the kitchen.",
+    engWord: "At that time",
+    marker: "lúc đó",
+    brk: "lúc đó – at that time | mẹ – mom | đang – currently | nấu cơm – cook rice | trong bếp – in the kitchen",
+    tips: "lúc đó = at that time/moment. Great for storytelling. Compare: sau đó (after that), trước đó (before that) – same structure, different direction."
+  },
+  {
+    viet: "Trước đó, bà đã mua gạo mới ở chợ.",
+    eng: "Before that, she had bought new rice at the market.",
+    engWord: "Before that",
+    marker: "trước đó",
+    brk: "trước – before | đó – that | bà – she (respectful) | đã – past marker | mua – buy | gạo mới – new rice | ở chợ – at market",
+    tips: "trước đó = before that. Pair with sau đó (after that) and lúc đó (at that time) for natural storytelling flow."
+  },
+  {
+    viet: "Hiếm khi mẹ mua gạo đắt như vậy.",
+    eng: "Mom rarely buys rice that expensive.",
+    engWord: "rarely",
+    marker: "hiếm khi",
+    brk: "hiếm – rare | khi – time/when | mẹ – mom | mua – buy | gạo – rice | đắt – expensive | như vậy – like that",
+    tips: "hiếm khi = rarely/seldom. hiếm = rare; khi = time/occasion. You can also say 'ít khi' with the same meaning."
+  },
+  {
+    viet: "Thay vì mua gạo rẻ, bà mua loại ngon hơn.",
+    eng: "Instead of buying cheap rice, she bought a better quality one.",
+    engWord: "Instead of",
+    marker: "thay vì",
+    brk: "thay – replace/instead | vì – because/for | gạo rẻ – cheap rice | loại – type/kind | ngon hơn – more delicious",
+    tips: "thay vì = instead of. Pattern: 'Thay vì [A], [B]' = 'Instead of [A], [B]'. Very common in spoken and written northern Vietnamese."
+  },
+  {
+    viet: "Sắp đến giờ ăn tối rồi.",
+    eng: "It's almost time for dinner.",
+    engWord: "almost",
+    marker: "sắp",
+    brk: "sắp – soon/about to | đến – arrive/reach | giờ ăn tối – dinner time | rồi – already (emphasis)",
+    tips: "sắp = soon/about to happen. Compare sớm: sắp = something about to happen; sớm = early. 'Sắp mưa.' = 'It's about to rain.'"
+  },
+  {
+    viet: "Chỉ còn mười phút nữa thôi.",
+    eng: "There are only ten more minutes.",
+    engWord: "only",
+    marker: "chỉ",
+    brk: "chỉ – only | còn – remaining | mười phút – ten minutes | nữa – more | thôi – only/just (final particle)",
+    tips: "chỉ = only/just. Often paired with thôi: 'chỉ...thôi' = 'only...that's it'. 'Chỉ một chút thôi.' = 'Only a little, that's all.'"
+  },
+  {
+    viet: "Hoặc là ăn tối với gia đình, hoặc là ăn một mình.",
+    eng: "Either eat dinner with the family, or eat alone.",
+    engWord: "Either",
+    marker: "hoặc",
+    brk: "hoặc – or | là – emphasis | ăn tối – eat dinner | với – with | gia đình – family | một mình – alone",
+    tips: "'hoặc là...hoặc là...' = 'either...or...' Natural in northern speech. Also: 'Cà phê hoặc trà?' = 'Coffee or tea?'"
+  },
+  {
+    viet: "Từ giờ trở đi, anh ấy sẽ không dậy muộn nữa.",
+    eng: "From now on, he will not wake up late anymore.",
+    engWord: "From now on",
+    marker: "từ giờ trở đi",
+    brk: "từ – from | giờ – now | trở đi – onward | sẽ – will (future) | không...nữa – not...anymore | dậy muộn – wake up late",
+    tips: "từ giờ trở đi = from now on. Shorter: 'từ nay' = same meaning, more casual. Great for resolutions!"
+  },
+  {
+    viet: "Ít ra là đó là kế hoạch của anh ấy!",
+    eng: "At least, that was his plan!",
+    engWord: "At least",
+    marker: "ít ra",
+    brk: "ít ra – at least (casual) | đó – that | là – is | kế hoạch – plan | của – of/belonging to | anh ấy – him",
+    tips: "ít ra = at least (casual/colloquial). Same meaning as ít nhất but softer. 'Ít ra thì...' = 'At least...'"
+  },
+  {
+    viet: "Cuối cùng, cả nhà đi ngủ sớm.",
+    eng: "In the end, the whole family went to bed early.",
+    engWord: "In the end",
+    marker: "cuối cùng",
+    brk: "cuối – end | cùng – final | cả nhà – whole family | đi ngủ – go to sleep | sớm – early",
+    tips: "cuối cùng = in the end/finally/at last. Perfect for ending a story. 'Cuối cùng tôi cũng tìm thấy.' = 'I finally found it.'"
+  },
+  {
+    viet: "Không có gì đặc biệt – chỉ là một ngày bình thường ở Hà Nội.",
+    eng: "Nothing special – just an ordinary day in Hanoi.",
+    engWord: "Nothing",
+    marker: "không có",
+    brk: "không có – without/there is no | gì – anything | chỉ là – just/only | một ngày – one day | bình thường – ordinary",
+    tips: "không có = without / there is no. 'Không có tiền.' = 'Without money.' Also: 'Không có gì.' = 'Nothing.' / 'You're welcome (northern Vietnam).'"
+  }
+];
+
+// ── STATE ────────────────────────────────────────────────────────────────────
+let curIdx = 0;
+let playing = false;
+let brkOn = false;
+let tipsOn = false;
+let autoScroll = true;
+let utterance = null;
+let wordTimers = [];
+let sentTimer = null;
+let aiStoryData = null;
+let aiStoryTitle = null;
+let activeStory = STORY;
+let activeStoryId = 'buoi-sang-cua-nam';
+let repeatCount = 1;       // how many times to repeat each sentence (1=no repeat)
+let repeatDone = 0;        // how many repeats completed for current sentence
+let starredOnly = false;   // filter to starred sentences only
+let starredSet = {};       // {storyId_sentIdx: true}
+
+// Color Vietnamese words gold, English words grey
+// Breakdown format: "word – meaning | word – meaning"
+// Tips format: free prose mixing Vietnamese and English
+function colorViet(text) {
+  // Use breakdown parser ONLY if text has pipe separators (word – meaning | word – meaning)
+  // Tips text is prose and never has pipes, so it always goes to the word-by-word path
+  if (text.includes(' | ')) {
+    return text.split(' | ').map(chunk => {
+      const parts = chunk.split(/( – | - )/);
+      return parts.map((part, pi) => {
+        if (part === ' – ' || part === ' - ') return '<span style="color:#555"> – </span>';
+        if (pi === 0) return '<span style="color:var(--gold);font-weight:800">' + part + '</span>';
+        return '<span style="color:#888">' + part + '</span>';
+      }).join('');
+    }).join('<span style="color:#444"> | </span>');
+  }
+  // Prose (Tips): scan every token individually
+  // Split preserving whitespace and punctuation as separate tokens
+  return text.split(/([\s\u2013\u2014]+)/).map(tok => {
+    if (!tok.trim() || /^[\u2013\u2014\s]+$/.test(tok)) {
+      // Whitespace or dash separators — render as-is in grey
+      return '<span style="color:#555">' + tok + '</span>';
+    }
+    // Strip surrounding punctuation before checking
+    const bare = tok.replace(/^['"\u2018\u2019\u201C\u201D()\[\]{}.,:;!?…*=]+|['"\u2018\u2019\u201C\u201D()\[\]{}.,:;!?…*=]+$/g, '');
+    // Gold only if bare token has a letter with charcode > 127 and < 0x2000 (Vietnamese alphabet range)
+    const hasViet = [...bare].some(ch => {
+      const c = ch.charCodeAt(0);
+      return c > 127 && c < 0x2000;
+    });
+    if (hasViet) {
+      return '<span style="color:var(--gold);font-weight:700">' + tok + '</span>';
+    }
+    return '<span style="color:#999">' + tok + '</span>';
+  }).join('');
+}
+
+// Mark English translation - uses hardcoded engWord, exact match, case-insensitive
+function markEngMarker(engText, engWord, sentIdx) {
+  if (!engWord) return engText;
+  // Escape special regex chars
+  const escaped = engWord.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp('(' + escaped + ')', 'i');
+  return engText.replace(re, '<span class="eng-marker" id="em_' + sentIdx + '">$1</span>');
+}
+
+
+// ── STORY LIBRARY ─────────────────────────────────────────────────────────────
+// Each entry: { id, title, sentences[] }
+const STORY_LIB = [
+  { id: 'buoi-sang-cua-nam', title: 'Buổi Sáng Của Nam', subtitle: 'Nam\'s Morning — Discourse Markers', difficulty: 'Beginner', sentences: STORY }
+];
+let savedStories = [];  // AI-generated stories saved by user
+
+function loadSavedStories() {
+  try {
+    const raw = localStorage.getItem('vl_stories');
+    if (raw) savedStories = JSON.parse(raw);
+  } catch(e) { savedStories = []; }
+}
+
+function saveStoriesToStorage() {
+  try { localStorage.setItem('vl_stories', JSON.stringify(savedStories)); } catch(e) {}
+}
+
+function getAllStories() {
+  return [...STORY_LIB, ...savedStories];
+}
+
+function renderStoryIndex() {
+  const list = document.getElementById('storyList');
+  list.innerHTML = '';
+  getAllStories().forEach(story => {
+    const isActive = activeStoryId === story.id;
+    const div = document.createElement('div');
+    div.className = 'storyCard' + (isActive ? ' active-story' : '');
+    const diffColor = {Beginner:'#00c853',Intermediate:'#ffd700',Advanced:'#ff6b35'}[story.difficulty||'Beginner']||'#666';
+    div.innerHTML = `
+      <div style="flex:1;min-width:0;">
+        <div class="storyTitle">${story.title}</div>
+        <div class="storyMeta">${story.sentences ? story.sentences.length : '?'} sentences · <span style="color:${diffColor};font-weight:800">${story.difficulty||'Beginner'}</span></div>
+        <div class="storyMeta" style="color:#555;margin-top:2px">${story.subtitle||''}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;margin-left:8px;">
+        <div class="storyPlay">${isActive ? '▶' : '○'}</div>
+        ${isActive ? '<div onclick="event.stopPropagation();exportStory()" style="font-size:10px;font-weight:800;color:var(--teal);cursor:pointer;white-space:nowrap;">⬇ CSV</div>' : ''}
+      </div>
+    `;
+    div.onclick = () => loadStory(story);
+    list.appendChild(div);
+  });
+}
+
+function loadStory(story) {
+  if (playing) stopAll();
+  activeStory = story.sentences;
+  activeStoryId = story.id;
+  curIdx = loadProgress(story.id);
+  repeatDone = 0;
+  renderStory();
+  updateProgress();
+  showTab('story');
+  const anyStarred = Object.keys(starredSet).some(k => k.startsWith(story.id + '_'));
+  document.getElementById('starFilter').classList.toggle('on', anyStarred);
+  document.getElementById('starFilter').textContent = '★ Tap to show starred only';
+  if (curIdx > 0) toast('Resumed at sentence ' + (curIdx + 1));
+  else toast('Loaded: ' + story.title);
+}
+
+// ── EDITOR ────────────────────────────────────────────────────────────────────
+function renderEditor() {
+  const panel = document.getElementById('editorRows');
+  panel.innerHTML = '';
+  activeStory.forEach((s, i) => {
+    const div = document.createElement('div');
+    div.className = 'edRow';
+    div.innerHTML = `
+      <div class="edIdx">${i + 1} of ${activeStory.length}</div>
+      <label>Vietnamese</label>
+      <textarea id="ed_viet_${i}" rows="2">${s.viet}</textarea>
+      <label>English</label>
+      <textarea id="ed_eng_${i}" rows="2">${s.eng}</textarea>
+      <label>English highlight word</label>
+      <textarea id="ed_engw_${i}" rows="1">${s.engWord||''}</textarea>
+      <label>Marker</label>
+      <textarea id="ed_marker_${i}" rows="1">${s.marker}</textarea>
+      <label>Breakdown (word – meaning | word – meaning)</label>
+      <textarea id="ed_brk_${i}" rows="3">${s.brk}</textarea>
+      <label>Tips</label>
+      <textarea id="ed_tips_${i}" rows="3">${s.tips}</textarea>
+      <label>Difficulty (story-level, set on first card)</label>
+      ${i === 0 ? buildDiffSelect() : ''}
+    `;
+    panel.appendChild(div);
+  });
+  document.getElementById('edStatus').textContent = '';
+}
+
+function saveEdits() {
+  const btn = document.getElementById('edSaveBtn');
+  btn.disabled = true;
+  // Update difficulty if changed
+  const diffEl = document.getElementById('ed_diff_0');
+  if (diffEl) {
+    const libIdx = STORY_LIB.findIndex(s => s.id === activeStoryId);
+    if (libIdx !== -1) STORY_LIB[libIdx].difficulty = diffEl.value;
+    const savedIdx = savedStories.findIndex(s => s.id === activeStoryId);
+    if (savedIdx !== -1) { savedStories[savedIdx].difficulty = diffEl.value; saveStoriesToStorage(); }
+  }
+  const updated = activeStory.map((s, i) => ({
+    ...s,
+    viet:    document.getElementById('ed_viet_' + i).value.trim(),
+    eng:     document.getElementById('ed_eng_' + i).value.trim(),
+    engWord: document.getElementById('ed_engw_' + i).value.trim(),
+    marker:  document.getElementById('ed_marker_' + i).value.trim(),
+    brk:     document.getElementById('ed_brk_' + i).value.trim(),
+    tips:    document.getElementById('ed_tips_' + i).value.trim(),
+  }));
+  activeStory = updated;
+  // Also update in savedStories if it's an AI story
+  const idx = savedStories.findIndex(s => s.id === activeStoryId);
+  if (idx !== -1) { savedStories[idx].sentences = updated; saveStoriesToStorage(); }
+  curIdx = Math.min(curIdx, activeStory.length - 1);
+  renderStory();
+  updateProgress();
+  document.getElementById('edStatus').textContent = '✅ Changes applied!';
+  btn.disabled = false;
+  setTimeout(() => document.getElementById('edStatus').textContent = '', 2500);
+}
+
+
+// ── TAP TO HEAR ───────────────────────────────────────────────────────────────
+function tapWord(word, sentIdx) {
+  if (!word.trim()) return;
+  // Determine language: if word has Vietnamese chars, speak vi-VN, else en-US
+  const hasViet = [...word].some(ch => ch.charCodeAt(0) > 127 && ch.charCodeAt(0) < 0x2000);
+  const u = new SpeechSynthesisUtterance(word);
+  u.lang = hasViet ? 'vi-VN' : 'en-US';
+  u.rate = parseFloat(document.getElementById('spd').value);
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+  // Visual pulse
+  const el = document.getElementById('w_' + sentIdx + '_' + word);
+  // Find the span by content instead
+  const allW = document.querySelectorAll('#sCard_' + sentIdx + ' .w');
+  allW.forEach(el => { if (el.textContent === word) { el.classList.add('tapped'); setTimeout(() => el.classList.remove('tapped'), 400); }});
+}
+
+// ── STAR / FAVORITE ───────────────────────────────────────────────────────────
+function toggleStar(idx) {
+  const key = activeStoryId + '_' + idx;
+  if (starredSet[key]) delete starredSet[key];
+  else starredSet[key] = true;
+  saveStarred();
+  const btn = document.getElementById('star_' + idx);
+  if (btn) btn.classList.toggle('on', !!starredSet[key]);
+  // Show/hide starred filter chip
+  const anyStarred = Object.keys(starredSet).some(k => k.startsWith(activeStoryId + '_'));
+  document.getElementById('starFilter').classList.toggle('on', anyStarred);
+  toast(starredSet[key] ? '★ Starred' : '☆ Unstarred');
+}
+
+function saveStarred() {
+  try { localStorage.setItem('vl_starred', JSON.stringify(starredSet)); } catch(e) {}
+}
+
+function loadStarred() {
+  try {
+    const raw = localStorage.getItem('vl_starred');
+    if (raw) starredSet = JSON.parse(raw);
+  } catch(e) { starredSet = {}; }
+}
+
+function togStarFilter() {
+  starredOnly = !starredOnly;
+  const chip = document.getElementById('starFilter');
+  chip.textContent = starredOnly ? '★ Showing starred only — tap to show all' : '★ Tap to show starred only';
+  chip.style.background = starredOnly ? 'rgba(255,215,0,.25)' : 'rgba(255,215,0,.12)';
+  renderStory();
+  toast(starredOnly ? 'Showing starred only' : 'Showing all sentences');
+}
+
+// ── REPEAT MODE ───────────────────────────────────────────────────────────────
+const REPEAT_OPTIONS = [1, 2, 3, 5];
+let repeatOptionIdx = 0;
+
+function togRepeat() {
+  repeatOptionIdx = (repeatOptionIdx + 1) % REPEAT_OPTIONS.length;
+  repeatCount = REPEAT_OPTIONS[repeatOptionIdx];
+  repeatDone = 0;
+  document.getElementById('repLbl').textContent = repeatCount;
+  document.getElementById('togRepeat').classList.toggle('on', repeatCount > 1);
+  toast(repeatCount > 1 ? 'Repeat ×' + repeatCount + ' per sentence' : 'Repeat off');
+}
+
+function updateRepeatBadge() {
+  const badge = document.getElementById('repeatBadge');
+  const badgeLbl = document.getElementById('repBadgeLbl');
+  const countLbl = document.getElementById('repCountLbl');
+  if (repeatCount > 1 && playing) {
+    badge.classList.add('on');
+    badgeLbl.textContent = repeatCount;
+    countLbl.textContent = repeatDone;
+  } else {
+    badge.classList.remove('on');
+  }
+}
+
+// ── PROGRESS SAVE/RESTORE ─────────────────────────────────────────────────────
+function saveProgress() {
+  try {
+    const prog = JSON.parse(localStorage.getItem('vl_progress') || '{}');
+    prog[activeStoryId] = curIdx;
+    localStorage.setItem('vl_progress', JSON.stringify(prog));
+  } catch(e) {}
+}
+
+function loadProgress(storyId) {
+  try {
+    const prog = JSON.parse(localStorage.getItem('vl_progress') || '{}');
+    return prog[storyId] || 0;
+  } catch(e) { return 0; }
+}
+
+// ── EXPORT TO XLSX ────────────────────────────────────────────────────────────
+function exportStory() {
+  // Build CSV that Google Sheets / Excel can open
+  const rows = [['Vietnamese', 'English', 'Marker', 'Breakdown', 'Tips']];
+  activeStory.forEach(s => {
+    rows.push([s.viet, s.eng, s.marker, s.brk, s.tips]);
+  });
+  const csv = rows.map(r => r.map(cell => '"' + (cell||'').replace(/"/g, '""') + '"').join(',')).join('\n');
+  const blob = new Blob([csv], {type: 'text/csv;charset=utf-8;'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  const safeName = activeStoryId.replace(/[^a-z0-9-]/gi, '_');
+  a.download = safeName + '.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+  toast('Exported! Open in Google Sheets or Excel.');
+}
+
+function getActiveDifficulty() {
+  const lib = STORY_LIB.find(s => s.id === activeStoryId);
+  if (lib) return lib.difficulty || 'Beginner';
+  const saved = savedStories.find(s => s.id === activeStoryId);
+  return (saved && saved.difficulty) || 'Beginner';
+}
+
+function buildDiffSelect() {
+  const cur = getActiveDifficulty();
+  const opts = ['Beginner','Intermediate','Advanced'].map(d =>
+    '<option value="' + d + '"' + (cur === d ? ' selected' : '') + '>' + d + '</option>'
+  ).join('');
+  return '<select id="ed_diff_0" style="background:var(--sur2);border:1px solid var(--brd);border-radius:6px;color:#f5f5f0;font-family:Nunito,sans-serif;font-size:12px;padding:6px 8px;width:100%;outline:none;">' + opts + '</select>';
+}
+
+// ── INIT ─────────────────────────────────────────────────────────────────────
+function init() {
+  loadSavedStories();
+  loadStarred();
+  renderStory();
+  updateProgress();
+  // Show star filter chip if any stars exist for this story
+  const anyStarred = Object.keys(starredSet).some(k => k.startsWith(activeStoryId + '_'));
+  document.getElementById('starFilter').classList.toggle('on', anyStarred);
+  document.getElementById('starFilter').textContent = '★ Tap to show starred only';
+}
+
+function renderStory() {
+  const panel = document.getElementById('storyPanel');
+  panel.innerHTML = '';
+  activeStory.forEach((s, i) => {
+    const div = document.createElement('div');
+    div.className = 'sCard' + (i < curIdx ? ' done' : i === curIdx ? ' active' : '');
+    div.id = 'sCard_' + i;
+    div.onclick = () => jumpTo(i);
+
+    // Words wrapped for highlighting
+    const words = tokenize(s.viet);
+
+    // Wrap Vietnamese marker words with dim rest style
+    const markerClean = (s.marker||'').replace(/\s*\(.*\)/,'').trim();
+    const markerWords = markerClean.toLowerCase().split(/\s+/);
+    const wordSpansMarked = words.map((w, wi) => {
+      if (w.trim() === '') return w;
+      const isMarkerWord = markerWords.some(mw => w.toLowerCase().replace(/[,\.!?:''""]/g,'') === mw);
+      const cls = isMarkerWord ? 'w marker-rest' : 'w';
+      const dataAttr = isMarkerWord ? ' data-is-marker="1"' : '';
+      return `<span class="${cls}"${dataAttr} id="w_${i}_${wi}" onclick="event.stopPropagation();tapWord('${w.replace(/'/g,"\\'")}','${i}')">${w}</span>`;
+    }).join('');
+
+    // Wrap English marker equivalent
+    const engMarked = markEngMarker(s.eng, s.engWord, i);
+
+    const starKey = activeStoryId + '_' + i;
+    const isStarred = !!starredSet[starKey];
+    div.innerHTML = `
+      <div class="sNum">${i + 1} of ${activeStory.length}</div>
+      <button class="starBtn${isStarred ? ' on' : ''}" id="star_${i}" onclick="event.stopPropagation();toggleStar(${i})">★</button>
+      <div style="font-size:10px;font-weight:800;color:var(--acc);text-align:center;letter-spacing:.5px;margin-bottom:6px;">${s.marker}</div>
+      <div class="sViet" id="viet_${i}">${wordSpansMarked}</div>
+      <div class="sEng" id="eng_${i}">${engMarked}</div>
+      <div class="sBrk${brkOn ? ' on' : ''}" id="brk_${i}">📖 ${colorViet(s.brk)}</div>
+      <div class="sTips${tipsOn ? ' on' : ''}" id="tips_${i}">💡 ${colorViet(s.tips)}</div>
+    `;
+    panel.appendChild(div);
+  });
+}
+
+function tokenize(text) {
+  // Split into word tokens preserving spaces and punctuation
+  return text.split(/(\s+|[,\.!?:''""–\-\/])/);
+}
+
+function jumpTo(i) {
+  if (playing) pausePlay();
+  curIdx = i;
+  repeatDone = 0;
+  clearAllHighlights();
+  clearEngMarker();
+  refreshCards();
+  updateProgress();
+  scrollToCurrent();
+  saveProgress();
+}
+
+function refreshCards() {
+  activeStory.forEach((_, i) => {
+    const card = document.getElementById('sCard_' + i);
+    if (!card) return;
+    card.className = 'sCard' + (i < curIdx ? ' done' : i === curIdx ? ' active' : '');
+  });
+}
+
+function scrollToCurrent() {
+  if (!autoScroll) return;
+  const card = document.getElementById('sCard_' + curIdx);
+  if (card) card.scrollIntoView({behavior: 'smooth', block: 'center'});
+}
+
+function updateProgress() {
+  const pct = activeStory.length > 1 ? (curIdx / (activeStory.length - 1)) * 100 : 0;
+  document.getElementById('progFill').style.width = pct + '%';
+}
+
+// ── PLAYBACK ─────────────────────────────────────────────────────────────────
+function togglePlay() {
+  if (playing) {
+    pausePlay();
+  } else {
+    startPlay();
+  }
+}
+
+function startPlay() {
+  playing = true;
+  document.getElementById('playBtn').textContent = '⏸ Pause';
+  document.getElementById('playBtn').classList.add('playing');
+  speakCurrent();
+}
+
+function pausePlay() {
+  playing = false;
+  document.getElementById('playBtn').textContent = '▶ Play';
+  document.getElementById('playBtn').classList.remove('playing');
+  speechSynthesis.cancel();
+  clearTimers();
+  clearAllHighlights();
+  clearEngMarker();
+}
+
+function stopAll() {
+  playing = false;
+  document.getElementById('playBtn').textContent = '▶ Play';
+  document.getElementById('playBtn').classList.remove('playing');
+  speechSynthesis.cancel();
+  clearTimers();
+  clearHighlights();
+  curIdx = 0;
+  refreshCards();
+  updateProgress();
+  scrollToCurrent();
+}
+
+function clearTimers() {
+  wordTimers.forEach(t => clearTimeout(t));
+  wordTimers = [];
+  if (sentTimer) { clearTimeout(sentTimer); sentTimer = null; }
+}
+
+function clearHighlights() {
+  // Only clear regular word highlights (.hl), not marker highlights (.hl-marker)
+  // Marker words stay bright for the whole sentence they belong to
+  document.querySelectorAll('.w.hl').forEach(el => el.classList.remove('hl'));
+}
+function clearAllHighlights() {
+  // Full reset: clear everything including markers, restore dim state
+  document.querySelectorAll('.w.hl').forEach(el => el.classList.remove('hl'));
+  document.querySelectorAll('.w.hl-marker').forEach(el => {
+    el.classList.remove('hl-marker');
+    if (el.dataset.isMarker === '1') el.classList.add('marker-rest');
+  });
+}
+function clearEngMarker() {
+  document.querySelectorAll('.eng-marker.lit').forEach(el => el.classList.remove('lit'));
+}
+
+function speakCurrent() {
+  if (curIdx >= activeStory.length) {
+    stopAll();
+    toast('Story complete!');
+    return;
+  }
+
+  refreshCards();
+  updateProgress();
+  scrollToCurrent();
+  clearHighlights();
+  clearEngMarker();
+  updateRepeatBadge();
+  // Pre-light ALL marker words in Vietnamese (dim->bright) at sentence start
+  // They will go back to dim when clearHighlights fires on each onboundary,
+  // then re-brighten when onboundary hits that word.
+  // For reliability on iOS, also keep them lit at sentence start regardless of onboundary.
+  document.querySelectorAll('#sCard_' + curIdx + ' .marker-rest').forEach(el => {
+    el.classList.remove('marker-rest');
+    el.classList.add('hl-marker');
+  });
+  // Light up English marker
+  const emEl = document.getElementById('em_' + curIdx);
+  if (emEl) emEl.classList.add('lit');
+
+  const s = activeStory[curIdx];
+  const rate = parseFloat(document.getElementById('spd').value);
+  const markerText = (s.marker || '').replace(/\s*\(.*\)/, '').trim().toLowerCase();
+
+  // Build a flat list of word spans for this sentence so we can map char offsets -> span ids
+  // tokenize() splits into words and punctuation; we need char offset of each word in the original text
+  const vietText = s.viet;
+  const wordMap = []; // [{start, end, elemId}]
+  const tokens = tokenize(vietText);
+  let charPos = 0;
+  tokens.forEach((tok, ti) => {
+    const isPunct = tok.trim() === '' || /^[,\.!?:''""–\-\/\s]+$/.test(tok);
+    if (!isPunct) {
+      wordMap.push({ start: charPos, end: charPos + tok.length, elemId: `w_${curIdx}_${ti}` });
+    }
+    charPos += tok.length;
+  });
+
+  const u = new SpeechSynthesisUtterance(vietText);
+  u.lang = 'vi-VN';
+  u.rate = rate;
+
+  u.onboundary = (e) => {
+    if (e.name !== 'word') return;
+    clearHighlights();
+    // Find which word span covers this char offset
+    const pos = e.charIndex;
+    // Find closest match
+    let best = null;
+    let bestDist = Infinity;
+    wordMap.forEach(wm => {
+      if (pos >= wm.start && pos < wm.end) { best = wm; bestDist = 0; }
+      else {
+        const d = Math.min(Math.abs(pos - wm.start), Math.abs(pos - wm.end));
+        if (d < bestDist) { bestDist = d; best = wm; }
+      }
+    });
+    if (best) {
+      const el = document.getElementById(best.elemId);
+      if (el) {
+        // Check if this word is part of the marker
+        const wordText = el.textContent.trim().toLowerCase().replace(/[,\.!?:''""]/g,'');
+        const isMarker = markerText.split(/\s+/).some(mw => wordText === mw || wordText.startsWith(mw));
+        if (isMarker) {
+          el.classList.remove('marker-rest');
+          el.classList.add('hl-marker');
+        } else {
+          el.classList.add('hl');
+        }
+      }
+    }
+  };
+
+  u.onend = () => {
+    if (!playing) return;
+    clearAllHighlights();
+    clearEngMarker();
+    repeatDone++;
+    updateRepeatBadge();
+    const lastChar = vietText.trim().slice(-1);
+    const pause = lastChar === '.' ? 800 : lastChar === '!' || lastChar === '?' ? 600 : 350;
+    sentTimer = setTimeout(() => {
+      if (!playing) return;
+      if (repeatDone < repeatCount) {
+        // repeat same sentence
+        speakCurrent();
+      } else {
+        repeatDone = 0;
+        curIdx++;
+        // skip non-starred if filter on
+        if (starredOnly) {
+          while (curIdx < activeStory.length && !starredSet[activeStoryId + '_' + curIdx]) curIdx++;
+        }
+        speakCurrent();
+      }
+    }, pause);
+  };
+
+  u.onerror = () => {
+    if (!playing) return;
+    curIdx++;
+    speakCurrent();
+  };
+
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+
+function animateWords(sentIdx, rate) {
+  // No-op: word highlighting is now driven by the 'boundary' event on the utterance
+  // See speakCurrent() where u.onboundary is set
+}
+
+function prevSent() {
+  if (playing) pausePlay();
+  curIdx = Math.max(0, curIdx - 1);
+  repeatDone = 0;
+  clearAllHighlights();
+  clearEngMarker();
+  refreshCards();
+  updateProgress();
+  scrollToCurrent();
+  saveProgress();
+}
+
+function nextSent() {
+  if (playing) pausePlay();
+  curIdx = Math.min(activeStory.length - 1, curIdx + 1);
+  clearAllHighlights();
+  clearEngMarker();
+  refreshCards();
+  updateProgress();
+  scrollToCurrent();
+}
+
+// ── TOGGLES ──────────────────────────────────────────────────────────────────
+function togBreak() {
+  brkOn = !brkOn;
+  document.getElementById('togBrk').classList.toggle('on', brkOn);
+  document.querySelectorAll('.sBrk').forEach(el => el.classList.toggle('on', brkOn));
+}
+
+function togTips() {
+  tipsOn = !tipsOn;
+  document.getElementById('togTips').classList.toggle('on', tipsOn);
+  document.querySelectorAll('.sTips').forEach(el => el.classList.toggle('on', tipsOn));
+}
+
+function togAuto() {
+  autoScroll = !autoScroll;
+  document.getElementById('togAuto').classList.toggle('on', autoScroll);
+  toast(autoScroll ? 'Auto-scroll on' : 'Auto-scroll off');
+}
+
+// ── TABS ─────────────────────────────────────────────────────────────────────
+function showTab(tab) {
+  ['story','index','editor','ai'].forEach(t => {
+    const btn = document.getElementById('tb' + t.charAt(0).toUpperCase() + t.slice(1));
+    if (btn) btn.classList.toggle('on', t === tab);
+  });
+  document.getElementById('storyPanel').style.display = tab === 'story' ? '' : 'none';
+  document.getElementById('aiPanel').classList.toggle('on', tab === 'ai');
+  document.getElementById('indexPanel').classList.toggle('on', tab === 'index');
+  document.getElementById('editorPanel').classList.toggle('on', tab === 'editor');
+  if (tab === 'index') renderStoryIndex();
+  if (tab === 'editor') renderEditor();
+}
+
+// ── AI GENERATION ─────────────────────────────────────────────────────────────
+async function genAI() {
+  const prompt = document.getElementById('aiPrompt').value.trim();
+  if (!prompt) { toast('Enter a story idea first'); return; }
+
+  const btn = document.getElementById('aiGenBtn');
+  const status = document.getElementById('aiStatus');
+  const result = document.getElementById('aiResult');
+  const useBtn = document.getElementById('aiUseBtn');
+
+  btn.disabled = true;
+  btn.textContent = '⏳ Generating...';
+  status.textContent = 'Asking Claude to write your story...';
+  result.classList.remove('on');
+  useBtn.classList.remove('on');
+
+  const systemPrompt = `You are a Vietnamese language teacher creating reading practice stories for beginner self-taught adult students at approximately a 9-10 year old reading level.
+
+Write a SHORT Vietnamese story (8-15 sentences) based on the user's topic request. Use casual northern Vietnamese speech.
+
+Return ONLY valid JSON in this exact format, no other text:
+{
+  "title": "Story title in Vietnamese",
+  "sentences": [
+    {
+      "viet": "Vietnamese sentence.",
+      "eng": "English translation.",
+      "marker": "key word/phrase in this sentence",
+      "brk": "word1 – meaning | word2 – meaning | word3 – meaning",
+      "tips": "Usage tip about the key word or grammar point in this sentence."
+    }
+  ]
+}
+
+Rules:
+- Simple, common vocabulary only
+- Natural northern Vietnamese (Hanoi style)
+- Short sentences (under 15 words each)
+- Include accented stress marks on Vietnamese words (e.g. á, ó, é for stressed vowels)
+- Each sentence should have a different discourse marker or connecting word if possible
+- The breakdown (brk) should cover the most important 4-6 words
+- Tips should be useful for a beginner learner`;
+
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: systemPrompt,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+
+    const data = await response.json();
+    const text = data.content.map(b => b.text || '').join('');
+
+    // Parse JSON
+    const clean = text.replace(/```json|```/g, '').trim();
+    const parsed = JSON.parse(clean);
+
+    aiStoryData = parsed.sentences;
+    aiStoryTitle = parsed.title || 'AI Story';
+    status.textContent = `✅ Generated ${parsed.sentences.length} sentences — "${parsed.title}"`;
+    result.innerHTML = parsed.sentences.map((s, i) =>
+      `<div style="margin-bottom:10px"><span style="color:var(--acc);font-weight:800">${i+1}.</span> ${s.viet}<br><span style="color:#888;font-size:12px">${s.eng}</span></div>`
+    ).join('');
+    result.classList.add('on');
+    useBtn.classList.add('on');
+
+  } catch (err) {
+    status.textContent = '❌ Error: ' + err.message;
+    console.error(err);
+  }
+
+  btn.disabled = false;
+  btn.textContent = '✨ Generate Story';
+}
+
+function useAIStory() {
+  if (!aiStoryData) return;
+  if (playing) stopAll();
+  const title = aiStoryTitle || 'AI Story';
+  const id = 'ai-' + Date.now();
+  const newStory = { id, title, subtitle: aiStoryData.length + ' sentences · AI generated', difficulty: 'Beginner', sentences: aiStoryData };
+  savedStories.push(newStory);
+  saveStoriesToStorage();
+  loadStory(newStory);
+  toast('Saved & loaded: ' + title);
+}
+
+// ── TOAST ────────────────────────────────────────────────────────────────────
+let toastTimer;
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.style.opacity = '1';
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.style.opacity = '0', 2000);
+}
+
+// ── START ─────────────────────────────────────────────────────────────────────
+document.getElementById('togAuto').classList.add('on');
+init();
+</script>
+</body>
+</html>
