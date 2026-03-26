@@ -568,13 +568,17 @@ let savedStories = [];  // AI-generated stories saved by user
 
 function loadSavedStories() {
   try {
-    const raw = localStorage.getItem('vl_stories');
+    const raw = localStorage.getItem('vl_stories') || localStorage.getItem('vl_stories_bak');
     if (raw) savedStories = JSON.parse(raw);
   } catch(e) { savedStories = []; }
 }
 
 function saveStoriesToStorage() {
-  try { localStorage.setItem('vl_stories', JSON.stringify(savedStories)); } catch(e) {}
+  try {
+    const data = JSON.stringify(savedStories);
+    localStorage.setItem('vl_stories', data);
+    localStorage.setItem('vl_stories_bak', data); // backup copy
+  } catch(e) {}
 }
 
 function getAllStories() {
@@ -1239,6 +1243,20 @@ function toast(msg) {
 // ── START ─────────────────────────────────────────────────────────────────────
 document.getElementById('togAuto').classList.add('on');
 init();
+
+// Auto-save when user leaves the app or switches away
+document.addEventListener('visibilitychange', function() {
+  if (document.visibilityState === 'hidden') {
+    saveStoriesToStorage();
+    saveStarred();
+    saveProgress();
+  }
+});
+window.addEventListener('pagehide', function() {
+  saveStoriesToStorage();
+  saveStarred();
+  saveProgress();
+});
 </script>
 </body>
 </html>
