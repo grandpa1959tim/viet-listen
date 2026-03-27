@@ -13,10 +13,32 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 html,body{height:100%;background:#0d0d0d;color:#f5f5f0;font-family:'Nunito',sans-serif;overscroll-behavior:none;}
-:root{--acc:#ff6b35;--gold:#ffd700;--teal:#00d4aa;--ok:#00c853;--no:#ff3d57;--sur:#1a1a1a;--sur2:#252525;--brd:rgba(255,255,255,.09);--rad:14px;--tap:52px;}
+:root{--acc:#ff6b35;--gold:#ffd700;--teal:#00d4aa;--ok:#00c853;--no:#ff3d57;--sur:#1a1a1a;--sur2:#252525;--brd:rgba(255,255,255,.09);--rad:14px;--tap:52px;--viet-size:clamp(15px,4vw,20px);}
+:root.day{--sur:#f0ede6;--sur2:#e4e0d8;--brd:rgba(0,0,0,.1);--gold:#b8860b;--teal:#007a66;--ok:#006400;--no:#cc0000;--acc:#cc4400;}
+:root.day body{background:#f7f4ee;color:#1a1a1a;}
+:root.day #hdr{background:#f7f4ee;}
+:root.day #tabs{background:#f7f4ee;}
+:root.day #ctrlBar{background:#f7f4ee;}
+:root.day .sCard{background:#fff;border-color:rgba(0,0,0,.1);}
+:root.day .sCard.active{background:rgba(204,68,0,.06);}
+:root.day .sCard.done{opacity:.4;}
+:root.day .sEng{color:#666;}
+:root.day .tb{color:#999;}
+:root.day .tb.on{color:var(--acc);}
+:root.day #logo span{color:#b8860b;}
+:root.day .tog{color:#333;border-color:rgba(0,0,0,.15);}
+:root.day #spdTicks span{color:#bbb;}
+:root.day #toast{background:#fff;border-color:rgba(0,0,0,.15);color:#333;}
+:root.day .marker-rest{background:rgba(180,130,0,.12);color:rgba(180,130,0,.6);}
+:root.day .w.hl{background:rgba(255,200,0,.35);color:#7a5800;}
+:root.day .w.hl-marker{background:rgba(255,200,0,.9);color:#3a2800;box-shadow:0 0 0 2px #00aa00,0 0 8px 1px #00aa00;}
+:root.day .punct{color:#888;}
 
 /* HEADER */
-#hdr{display:flex;align-items:center;justify-content:center;padding:10px 14px;border-bottom:1px solid var(--brd);}
+#hdr{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--brd);}
+#hdrControls{display:flex;gap:10px;align-items:center;}
+#themeBtn{background:none;border:none;font-size:20px;cursor:pointer;padding:4px;-webkit-tap-highlight-color:transparent;}
+#fontBtn{background:none;border:1.5px solid var(--brd);border-radius:8px;font-size:13px;font-weight:800;color:#888;cursor:pointer;padding:3px 8px;-webkit-tap-highlight-color:transparent;font-family:"Nunito",sans-serif;}
 #logo{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--acc);white-space:nowrap;}
 #logo span{color:var(--gold);}
 
@@ -34,7 +56,7 @@ html,body{height:100%;background:#0d0d0d;color:#f5f5f0;font-family:'Nunito',sans
 .tb.on{color:var(--acc);border-bottom-color:var(--acc);}
 
 /* MAIN */
-#main{display:flex;flex-direction:column;align-items:center;padding:12px 14px;gap:10px;overflow-y:auto;height:calc(100vh - 90px);}
+#main{display:flex;flex-direction:column;align-items:center;padding:12px 14px 240px;gap:10px;overflow-y:auto;height:calc(100vh - 90px);}
 
 /* STORY PANEL */
 #storyPanel{width:100%;max-width:500px;display:flex;flex-direction:column;gap:10px;}
@@ -45,7 +67,7 @@ html,body{height:100%;background:#0d0d0d;color:#f5f5f0;font-family:'Nunito',sans
 .sCard.done{opacity:.5;}
 
 .sNum{font-size:11px;font-weight:800;color:#39ff14;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;text-align:center;text-shadow:0 0 6px rgba(57,255,20,.5);}
-.sViet{font-size:clamp(15px,4vw,20px);font-weight:700;line-height:1.7;margin-bottom:8px;}
+.sViet{font-size:var(--viet-size);font-weight:700;line-height:1.7;margin-bottom:8px;}
 .sEng{font-size:13px;color:#aaa;font-weight:600;line-height:1.5;margin-bottom:0;}
 .sBrk{font-size:12px;color:#aaa;line-height:1.8;margin-top:8px;display:none;}
 .sBrk.on{display:block;}
@@ -53,7 +75,7 @@ html,body{height:100%;background:#0d0d0d;color:#f5f5f0;font-family:'Nunito',sans
 .sTips.on{display:block;}
 
 /* Word highlighting */
-.w{display:inline;cursor:pointer;border-radius:4px;padding:0 2px;transition:background .1s;}
+.w{display:inline;cursor:pointer;border-radius:4px;padding:0 2px;transition:background .1s;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;}
 .w.hl{background:rgba(255,215,0,.18);color:#ffe066;border-radius:4px;padding:0 3px;}
 .w.hl-marker{background:rgba(255,210,0,.85);color:#1a1200;border-radius:4px;padding:0 3px;box-shadow:0 0 0 2px #39ff14,0 0 8px 1px #39ff14;}
 /* Marker at rest (dim indicator, not reading) */
@@ -149,12 +171,42 @@ html,body{height:100%;background:#0d0d0d;color:#f5f5f0;font-family:'Nunito',sans
 
 /* toast */
 #toast{position:fixed;top:70px;left:50%;transform:translateX(-50%);background:var(--sur2);border:1px solid var(--brd);border-radius:99px;padding:8px 18px;font-size:13px;font-weight:700;pointer-events:none;opacity:0;transition:opacity .3s;z-index:99;white-space:nowrap;}
+
+/* Send to VietCards modal */
+#vcModal{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;}
+#vcModal.on{display:flex;}
+#vcBox{background:var(--sur);border:1.5px solid var(--brd);border-radius:18px;padding:20px;width:100%;max-width:400px;display:flex;flex-direction:column;gap:10px;}
+#vcBox h3{font-size:16px;font-weight:800;color:var(--acc);text-align:center;}
+#vcBox label{font-size:10px;font-weight:800;color:#555;letter-spacing:.5px;text-transform:uppercase;}
+#vcBox input,#vcBox select,#vcBox textarea{background:var(--sur2);border:1px solid var(--brd);border-radius:8px;color:#f5f5f0;font-family:'Nunito',sans-serif;font-size:13px;padding:8px 10px;width:100%;outline:none;}
+#vcBox input:focus,#vcBox select:focus,#vcBox textarea:focus{border-color:var(--acc);}
+.vcBtnRow{display:flex;gap:8px;}
+.vcBtnRow button{flex:1;height:44px;border-radius:var(--rad);font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;cursor:pointer;border:1.5px solid;}
+#vcSendBtn{background:rgba(0,200,83,.2);border-color:var(--ok);color:var(--ok);}
+#vcCancelBtn{background:transparent;border-color:var(--brd);color:#666;}
+
+/* Landscape layout */
+@media (orientation: landscape) and (max-height: 500px) {
+  #main{height:calc(100vh - 70px);}
+  .sCard{padding:8px 12px;}
+  .sViet{font-size:clamp(13px,3vw,17px);line-height:1.5;margin-bottom:4px;}
+  .sEng{font-size:12px;}
+  .sBrk,.sTips{font-size:11px;}
+  #ctrlBar{padding:6px 10px;gap:4px;}
+  #btnRow button{height:40px;}
+  .tog{height:30px;font-size:11px;}
+  #spdRow{padding:0;}
+}
 </style>
 </head>
 <body>
 
 <div id="hdr">
   <div id="logo">Viet<span>Listen</span></div>
+  <div id="hdrControls">
+    <button id="themeBtn" onclick="toggleTheme()">🌙</button>
+    <button id="fontBtn" onclick="cycleFont()">A</button>
+  </div>
 </div>
 
 <div id="tabs">
@@ -190,7 +242,7 @@ html,body{height:100%;background:#0d0d0d;color:#f5f5f0;font-family:'Nunito',sans
       <div style="font-size:10px;color:#555;font-weight:700;text-align:center;padding:2px 0;">Tap any row to copy · table pastes into Google Sheets</div>
       <div style="background:var(--sur);border:1px solid var(--brd);border-radius:var(--rad);overflow:hidden;">
         <table class="vocabTable">
-          <thead><tr><th>Vietnamese</th><th>English</th></tr></thead>
+          <thead><tr><th style="width:28px;text-align:center;">#</th><th>Vietnamese</th><th>English</th></tr></thead>
           <tbody id="vocabBody"></tbody>
         </table>
       </div>
@@ -208,7 +260,7 @@ html,body{height:100%;background:#0d0d0d;color:#f5f5f0;font-family:'Nunito',sans
     <div id="edStatus"></div>
   </div>
 
-  <div style="height:180px"></div>
+
 </div>
 
 <div id="ctrlBar">
@@ -238,6 +290,26 @@ html,body{height:100%;background:#0d0d0d;color:#f5f5f0;font-family:'Nunito',sans
     <button class="tog" id="togAdv" onclick="togAdvance()">▶▶ Auto</button>
   </div>
   <div id="repeatBadge">🔁 Repeat ×<span id="repBadgeLbl">3</span> — <span id="repCountLbl">0</span> done</div>
+</div>
+
+<!-- Send to VietCards Modal -->
+<div id="vcModal">
+  <div id="vcBox">
+    <h3>➕ Send to VietCards</h3>
+    <label>Vietnamese word</label>
+    <input id="vcWord" type="text" placeholder="Vietnamese word or phrase">
+    <label>English meaning</label>
+    <input id="vcEng" type="text" placeholder="English meaning">
+    <label>Example sentence (optional)</label>
+    <textarea id="vcExample" rows="2" placeholder="Example sentence from story..."></textarea>
+    <label>Add to deck</label>
+    <select id="vcDeck"><option value="">-- Loading decks... --</option></select>
+    <div class="vcBtnRow">
+      <button id="vcCancelBtn" onclick="closeVCModal()">Cancel</button>
+      <button id="vcSendBtn" onclick="sendToVietCards()">✅ Add Card</button>
+    </div>
+    <div id="vcStatus" style="font-size:11px;text-align:center;color:#666;min-height:16px;"></div>
+  </div>
 </div>
 
 <div id="toast"></div>
@@ -546,6 +618,7 @@ let wordTimers = [];
 let sentTimer = null;
 let aiStoryData = null;
 let aiStoryTitle = null;
+let aiStoryCover = null;
 let activeStory = STORY;
 let activeStoryId = 'buoi-sang-cua-nam';
 let repeatCount = 1;
@@ -553,6 +626,7 @@ let autoAdvance = true;  // when false, stops after each sentence       // how m
 let repeatDone = 0;        // how many repeats completed for current sentence
 let starredOnly = false;   // filter to starred sentences only
 let starredSet = {};       // {storyId_sentIdx: true}
+let hiddenStories = {};    // {storyId: true}
 
 // Color Vietnamese words gold, English words grey
 // Breakdown format: "word – meaning | word – meaning"
@@ -604,12 +678,13 @@ function markEngMarker(engText, engWord, sentIdx) {
 // ── STORY LIBRARY ─────────────────────────────────────────────────────────────
 // Each entry: { id, title, sentences[] }
 const STORY_LIB = [
-  { id: 'buoi-sang-cua-nam', title: 'Buổi Sáng Của Nam', subtitle: 'Nam\'s Morning — Discourse Markers', difficulty: 'Beginner', sentences: STORY },
+  { id: 'buoi-sang-cua-nam', title: 'Buổi Sáng Của Nam', subtitle: 'Nam\'s Morning — Discourse Markers', difficulty: 'Beginner', cover: '🌅', sentences: STORY },
   {
     id: 'lan-dau-gap-nhau',
     title: 'Lần Đầu Gặp Nhau',
     subtitle: 'First Meeting at Commune Cafe',
     difficulty: 'Beginner',
+    cover: '☕',
     sentences: [
       {
         viet: "Tom đến quán cà phê Commune.",
@@ -842,8 +917,10 @@ function loadDifficulties() {
   } catch(e) {}
 }
 
-function getAllStories() {
-  return [...STORY_LIB, ...savedStories];
+function getAllStories(includeHidden = false) {
+  const all = [...STORY_LIB, ...savedStories];
+  if (includeHidden) return all;
+  return all.filter(s => !hiddenStories[s.id]);
 }
 
 function getStoredDifficulty(storyId) {
@@ -863,13 +940,16 @@ function getStoredDifficulty(storyId) {
 function renderStoryIndex() {
   const list = document.getElementById('storyList');
   list.innerHTML = '';
+  // Visible stories
   getAllStories().forEach(story => {
     const isActive = activeStoryId === story.id;
     const div = document.createElement('div');
     div.className = 'storyCard' + (isActive ? ' active-story' : '');
     const diff = getStoredDifficulty(story.id);
     const diffColor = {Beginner:'#00c853',Intermediate:'#ffd700',Advanced:'#ff6b35'}[diff]||'#666';
+    const cover = story.cover || '📖';
     div.innerHTML = `
+      <div style="font-size:32px;margin-right:12px;flex-shrink:0;font-family:'Apple Color Emoji','Segoe UI Emoji',sans-serif;line-height:1;">${cover}</div>
       <div style="flex:1;min-width:0;">
         <div class="storyTitle">${story.title}</div>
         <div class="storyMeta">${story.sentences ? story.sentences.length : '?'} sentences · <span style="color:${diffColor};font-weight:800">${diff}</span></div>
@@ -880,9 +960,80 @@ function renderStoryIndex() {
         <div onclick="event.stopPropagation();exportStoryById('${story.id}')" style="font-size:10px;font-weight:800;color:var(--teal);cursor:pointer;white-space:nowrap;">⬇ CSV</div>
       </div>
     `;
-    div.onclick = () => loadStory(story);
+    // Action buttons row
+    const actRow = document.createElement('div');
+    actRow.style.cssText = 'display:flex;gap:10px;justify-content:center;margin-top:4px;';
+    const isBuiltIn = STORY_LIB.some(s => s.id === story.id);
+    if (isBuiltIn) {
+      const hideBtn = document.createElement('span');
+      hideBtn.style.cssText = 'font-size:10px;font-weight:800;color:#555;cursor:pointer;-webkit-tap-highlight-color:transparent;';
+      hideBtn.textContent = '🙈 Hide';
+      hideBtn.dataset.action = 'hide';
+      hideBtn.onclick = (e) => { e.stopPropagation(); hideStory(story.id, story.title); };
+      actRow.appendChild(hideBtn);
+    } else {
+      const delBtn = document.createElement('span');
+      delBtn.style.cssText = 'font-size:10px;font-weight:800;color:var(--no);cursor:pointer;-webkit-tap-highlight-color:transparent;';
+      delBtn.textContent = '🗑 Delete';
+      delBtn.dataset.action = 'delete';
+      delBtn.onclick = (e) => { e.stopPropagation(); deleteStory(story.id, story.title); };
+      actRow.appendChild(delBtn);
+    }
+    div.appendChild(actRow);
+    div.setAttribute('data-story-id', story.id);
+    div.onclick = (e) => {
+      // Only load story if not tapping an action button
+      if (e.target.dataset.action) return;
+      loadStory(story);
+    };
     list.appendChild(div);
   });
+
+  // Show hidden stories section at bottom
+  const hiddenList = getAllStories(true).filter(s => hiddenStories[s.id]);
+  if (hiddenList.length > 0) {
+    const hiddenHeader = document.createElement('div');
+    hiddenHeader.style.cssText = 'font-size:10px;font-weight:800;color:#444;letter-spacing:1px;text-transform:uppercase;text-align:center;padding:8px 0 4px;';
+    hiddenHeader.textContent = 'Hidden Stories';
+    list.appendChild(hiddenHeader);
+    hiddenList.forEach(story => {
+      const div = document.createElement('div');
+      div.style.cssText = 'display:flex;justify-content:space-between;align-items:center;padding:8px 14px;background:var(--sur);border:1px solid var(--brd);border-radius:var(--rad);opacity:.5;';
+      div.innerHTML = '<span style="font-size:13px;font-weight:700;color:#666;">' + story.title + '</span>';
+      const unhideBtn = document.createElement('span');
+      unhideBtn.style.cssText = 'font-size:10px;font-weight:800;color:var(--teal);cursor:pointer;white-space:nowrap;margin-left:10px;';
+      unhideBtn.textContent = '👁 Unhide';
+      unhideBtn.onclick = () => { delete hiddenStories[story.id]; saveHidden(); renderStoryIndex(); toast('Unhidden: ' + story.title); };
+      div.appendChild(unhideBtn);
+      list.appendChild(div);
+    });
+  }
+}
+
+function hideStory(storyId, title) {
+  hiddenStories[storyId] = true;
+  saveHidden();
+  // If currently active story is hidden, load first visible story
+  if (activeStoryId === storyId) {
+    const first = getAllStories()[0];
+    if (first) loadStory(first);
+  } else {
+    renderStoryIndex();
+  }
+  toast('Hidden: ' + title + ' (scroll down to unhide)');
+}
+
+function deleteStory(storyId, title) {
+  if (!confirm('Delete "' + title + '"? This cannot be undone.')) return;
+  savedStories = savedStories.filter(s => s.id !== storyId);
+  saveStoriesToStorage();
+  // If currently active story is deleted, load first built-in story
+  if (activeStoryId === storyId) {
+    loadStory(STORY_LIB[0]);
+  } else {
+    renderStoryIndex();
+  }
+  toast('Deleted: ' + title);
 }
 
 function loadStory(story) {
@@ -901,7 +1052,10 @@ function loadStory(story) {
   else toast('Loaded: ' + story.title);
   // Update story name in tab bar
   const nameEl = document.getElementById('activeStoryName');
-  if (nameEl) nameEl.textContent = story.title;
+  if (nameEl) {
+    const sub = story.subtitle ? story.subtitle.split('·')[0].trim() : '';
+    nameEl.innerHTML = story.title + (sub ? '<br><span style="font-size:9px;color:#666;font-weight:700;">' + sub + '</span>' : '');
+  }
 }
 
 // ── EDITOR ────────────────────────────────────────────────────────────────────
@@ -915,6 +1069,8 @@ function renderEditor() {
   const currentStory = getAllStories().find(s => s.id === activeStoryId) || {};
   storyDiv.innerHTML = `
     <div class="edIdx" style="color:var(--acc)">Story Info</div>
+    <label>Cover emoji (any single emoji)</label>
+    <textarea id="ed_cover" rows="1" onchange="saveMetaNow()" style="font-size:24px;text-align:center;">${currentStory.cover||'📖'}</textarea>
     <label>Title (saves automatically on change)</label>
     <textarea id="ed_title" rows="1" onchange="saveMetaNow()">${currentStory.title||''}</textarea>
     <label>Subtitle</label>
@@ -955,6 +1111,8 @@ function saveEdits() {
   const titleEl = document.getElementById('ed_title');
   const subtitleEl = document.getElementById('ed_subtitle');
   const diffEl = document.getElementById('ed_diff_0');
+  const coverEl = document.getElementById('ed_cover');
+  const newCover = coverEl ? coverEl.value.trim() : null;
   const newTitle = titleEl ? titleEl.value.trim() : null;
   const newSubtitle = subtitleEl ? subtitleEl.value.trim() : null;
   const newDiff = diffEl ? diffEl.value : null;
@@ -1033,6 +1191,17 @@ function toggleStar(idx) {
 
 function saveStarred() {
   try { localStorage.setItem('vl_starred', JSON.stringify(starredSet)); } catch(e) {}
+}
+
+function saveHidden() {
+  try { localStorage.setItem('vl_hidden', JSON.stringify(hiddenStories)); } catch(e) {}
+}
+
+function loadHidden() {
+  try {
+    const raw = localStorage.getItem('vl_hidden');
+    if (raw) hiddenStories = JSON.parse(raw);
+  } catch(e) { hiddenStories = {}; }
 }
 
 function loadStarred() {
@@ -1154,15 +1323,19 @@ function saveDiffNow(val) {
 function saveMetaNow() {
   const titleEl = document.getElementById('ed_title');
   const subtitleEl = document.getElementById('ed_subtitle');
+  const coverEl = document.getElementById('ed_cover');
+  const newCover = coverEl ? coverEl.value.trim() : null;
   const newTitle = titleEl ? titleEl.value.trim() : null;
   const newSubtitle = subtitleEl ? subtitleEl.value.trim() : null;
   const libIdx = STORY_LIB.findIndex(s => s.id === activeStoryId);
   if (libIdx !== -1) {
+    if (newCover) STORY_LIB[libIdx].cover = newCover;
     if (newTitle) STORY_LIB[libIdx].title = newTitle;
     if (newSubtitle !== null) STORY_LIB[libIdx].subtitle = newSubtitle;
   }
   const savedIdx = savedStories.findIndex(s => s.id === activeStoryId);
   if (savedIdx !== -1) {
+    if (newCover) savedStories[savedIdx].cover = newCover;
     if (newTitle) savedStories[savedIdx].title = newTitle;
     if (newSubtitle !== null) savedStories[savedIdx].subtitle = newSubtitle;
     saveStoriesToStorage();
@@ -1171,18 +1344,172 @@ function saveMetaNow() {
   toast('Saved!');
 }
 
+
+// ── THEME (NIGHT/DAY) ─────────────────────────────────────────────────────────
+let isDayMode = false;
+
+function toggleTheme() {
+  isDayMode = !isDayMode;
+  document.documentElement.classList.toggle('day', isDayMode);
+  document.getElementById('themeBtn').textContent = isDayMode ? '☀️' : '🌙';
+  try { localStorage.setItem('vl_theme', isDayMode ? 'day' : 'night'); } catch(e) {}
+}
+
+function loadTheme() {
+  try {
+    const t = localStorage.getItem('vl_theme');
+    if (t === 'day') { isDayMode = true; document.documentElement.classList.add('day'); document.getElementById('themeBtn').textContent = '☀️'; }
+  } catch(e) {}
+}
+
+// ── FONT SIZE ─────────────────────────────────────────────────────────────────
+const FONT_SIZES = ['clamp(13px,3.5vw,17px)', 'clamp(15px,4vw,20px)', 'clamp(18px,5vw,26px)'];
+const FONT_LABELS = ['A', 'A', 'A'];
+let fontIdx = 1;
+
+function cycleFont() {
+  fontIdx = (fontIdx + 1) % FONT_SIZES.length;
+  document.documentElement.style.setProperty('--viet-size', FONT_SIZES[fontIdx]);
+  const btn = document.getElementById('fontBtn');
+  btn.style.fontSize = ['11px','13px','16px'][fontIdx];
+  btn.textContent = ['A⁻','A','A⁺'][fontIdx];
+  try { localStorage.setItem('vl_font', fontIdx); } catch(e) {}
+}
+
+function loadFont() {
+  try {
+    const f = localStorage.getItem('vl_font');
+    if (f !== null) {
+      fontIdx = parseInt(f);
+      document.documentElement.style.setProperty('--viet-size', FONT_SIZES[fontIdx]);
+      const btn = document.getElementById('fontBtn');
+      if (btn) { btn.style.fontSize = ['11px','13px','16px'][fontIdx]; btn.textContent = ['A⁻','A','A⁺'][fontIdx]; }
+    }
+  } catch(e) {}
+}
+
+// ── SEND TO VIETCARDS ─────────────────────────────────────────────────────────
+function openVCModal(word, example) {
+  // Load VietCards decks from shared localStorage
+  const vcStatus = document.getElementById('vcStatus');
+  const vcDeckSel = document.getElementById('vcDeck');
+  vcStatus.textContent = '';
+
+  try {
+    const vcData = JSON.parse(localStorage.getItem('vc4') || '{}');
+    const decks = vcData.decks || [];
+    if (decks.length === 0) {
+      vcDeckSel.innerHTML = '<option value="">No VietCards decks found — open VietCards first</option>';
+    } else {
+      vcDeckSel.innerHTML = decks.map(d => '<option value="' + d.id + '">' + d.name + '</option>').join('');
+    }
+  } catch(e) {
+    vcDeckSel.innerHTML = '<option value="">Could not load decks</option>';
+  }
+
+  document.getElementById('vcWord').value = word || '';
+  document.getElementById('vcEng').value = '';
+  document.getElementById('vcExample').value = example || '';
+  document.getElementById('vcModal').classList.add('on');
+  document.getElementById('vcEng').focus();
+}
+
+function closeVCModal() {
+  document.getElementById('vcModal').classList.remove('on');
+}
+
+function sendToVietCards() {
+  const word = document.getElementById('vcWord').value.trim();
+  const eng = document.getElementById('vcEng').value.trim();
+  const example = document.getElementById('vcExample').value.trim();
+  const deckId = document.getElementById('vcDeck').value;
+  const status = document.getElementById('vcStatus');
+
+  if (!word) { status.textContent = '⚠️ Enter a Vietnamese word'; return; }
+  if (!eng) { status.textContent = '⚠️ Enter the English meaning'; return; }
+  if (!deckId) { status.textContent = '⚠️ Select a deck'; return; }
+
+  try {
+    const vcData = JSON.parse(localStorage.getItem('vc4') || '{"decks":[],"cards":[]}');
+    const cards = vcData.cards || [];
+    const newCard = {
+      id: Math.random().toString(36).slice(2,9),
+      deckId: deckId,
+      vn: word,
+      en: eng,
+      brk: example ? 'Example: ' + example : '',
+      note: 'Added from VietListen story: ' + (getAllStories().find(s => s.id === activeStoryId)||{}).title,
+      box: 1,
+      nr: Date.now(),
+      ord: cards.length,
+      starred: false
+    };
+    cards.push(newCard);
+    vcData.cards = cards;
+    localStorage.setItem('vc4', JSON.stringify(vcData));
+    status.textContent = '✅ Added to VietCards!';
+    setTimeout(closeVCModal, 1200);
+    toast('Added "' + word + '" to VietCards!');
+  } catch(e) {
+    status.textContent = '❌ Error: ' + e.message;
+  }
+}
+
+// Long-press or double-tap on a word to open Send to VietCards
+// Single tap = hear word. Long press (500ms) = send to VietCards
+function setupWordLongPress() {
+  // Touch: long press (600ms) on mobile
+  let pressTimer = null;
+  document.getElementById('storyPanel').addEventListener('touchstart', function(e) {
+    const el = e.target.closest('.w');
+    if (!el) return;
+    pressTimer = setTimeout(() => {
+      pressTimer = null;
+      // Vibrate to confirm long press on iOS
+      if (navigator.vibrate) navigator.vibrate(30);
+      const word = el.dataset.word || el.textContent.trim();
+      const sentIdx = parseInt(el.dataset.sidx || 0);
+      const s = activeStory[sentIdx];
+      openVCModal(word, s ? s.viet : '');
+    }, 600);
+  }, {passive: false});
+  document.getElementById('storyPanel').addEventListener('touchend', function(e) {
+    if (pressTimer) { clearTimeout(pressTimer); pressTimer = null; }
+  }, {passive: false});
+  document.getElementById('storyPanel').addEventListener('touchmove', function(e) {
+    if (pressTimer) { clearTimeout(pressTimer); pressTimer = null; }
+  }, {passive: false});
+
+  // Mouse: right-click on desktop/computer
+  document.getElementById('storyPanel').addEventListener('contextmenu', function(e) {
+    const el = e.target.closest('.w');
+    if (!el) return;
+    e.preventDefault();
+    const word = el.dataset.word || el.textContent;
+    const sentIdx = parseInt(el.dataset.sidx || 0);
+    const s = activeStory[sentIdx];
+    openVCModal(word, s ? s.viet : '');
+  });
+}
+
 // ── INIT ─────────────────────────────────────────────────────────────────────
 function init() {
   loadSavedStories();
   loadDifficulties();
   loadStoryMeta();
   loadStarred();
+  loadHidden();
+  loadTheme();
+  loadFont();
   renderStory();
   updateProgress();
   // Set initial story name
   const initStory = getAllStories().find(s => s.id === activeStoryId);
   const nameEl = document.getElementById('activeStoryName');
-  if (nameEl && initStory) nameEl.textContent = initStory.title;
+  if (nameEl && initStory) {
+    const sub = initStory.subtitle ? initStory.subtitle.split('·')[0].trim() : '';
+    nameEl.innerHTML = initStory.title + (sub ? '<br><span style="font-size:9px;color:#666;font-weight:700;">' + sub + '</span>' : '');
+  }
   // Show star filter chip if any stars exist for this story
   const anyStarred = Object.keys(starredSet).some(k => k.startsWith(activeStoryId + '_'));
   document.getElementById('starFilter').classList.toggle('on', anyStarred);
@@ -1514,7 +1841,7 @@ function buildVocabPanel() {
   vietWords.forEach((eng, viet) => {
     rowNum++;
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td class="vietCell">${viet}</td><td class="engCell">${eng}</td>`;
+    tr.innerHTML = `<td style="text-align:center;color:#444;font-size:11px;font-weight:800;width:28px;">${rowNum}</td><td class="vietCell">${viet}</td><td class="engCell">${eng}</td>`;
     tr.onclick = () => {
       // Copy Vietnamese word
       const text = viet + ' – ' + eng;
@@ -1656,7 +1983,7 @@ Rules:
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': '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',
+        'x-api-key': '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',
         'anthropic-version': '2023-06-01',
         'anthropic-dangerous-direct-browser-access': 'true'
       },
@@ -1696,6 +2023,7 @@ Rules:
 
     aiStoryData = parsed.sentences;
     aiStoryTitle = parsed.title || 'AI Story';
+    aiStoryCover = parsed.cover || null;
     status.textContent = `✅ Generated ${parsed.sentences.length} sentences — "${parsed.title}"`;
     result.innerHTML = parsed.sentences.map((s, i) =>
       `<div style="margin-bottom:10px"><span style="color:var(--acc);font-weight:800">${i+1}.</span> ${s.viet}<br><span style="color:#888;font-size:12px">${s.eng}</span></div>`
@@ -1717,7 +2045,10 @@ function useAIStory() {
   if (playing) stopAll();
   const title = aiStoryTitle || 'AI Story';
   const id = 'ai-' + Date.now();
-  const newStory = { id, title, subtitle: aiStoryData.length + ' sentences', difficulty: 'Beginner', sentences: aiStoryData };
+  // Use AI-chosen cover emoji, fall back to random if not provided
+  const coverEmojis = ['🌸','🏙️','🌊','🍜','🎋','🌺','🏡','🌙','☕','🎭','🌿','🎵','📚','🌤️','🎪'];
+  const cover = aiStoryCover || coverEmojis[Math.floor(Math.random() * coverEmojis.length)];
+  const newStory = { id, title, subtitle: aiStoryData.length + ' sentences', difficulty: 'Beginner', cover, sentences: aiStoryData };
   savedStories.push(newStory);
   saveStoriesToStorage();
   loadStory(newStory);
@@ -1737,6 +2068,7 @@ function toast(msg) {
 // ── START ─────────────────────────────────────────────────────────────────────
 document.getElementById('togAuto').classList.add('on');
 init();
+setupWordLongPress();
 
 document.addEventListener('visibilitychange', function() {
   if (document.visibilityState === 'hidden') {
